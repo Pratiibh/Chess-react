@@ -2,8 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+//this imports the board as well as all the objects (pieces) 
+// naming convention is in notes folder
 import * as boardItems from './board/startingBoard.js'
 console.log(boardItems.startingBoard)
+console.log(boardItems.br00)
 
 function App() {
   return (

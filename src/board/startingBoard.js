@@ -1,11 +1,11 @@
 // 'use strict'
 
-let Pawn = require('../pieces/pawn.js')
-let Rook = require('../pieces/rook.js')
-let Knight = require('../pieces/knight.js')
-let Bishop = require('../pieces/bishop.js')
-let Queen = require('../pieces/queen.js')
-let King = require('../pieces/king.js')
+import Pawn from '../pieces/pawn.js'
+import Rook  from '../pieces/rook.js'
+import Knight  from '../pieces/knight.js'
+import Bishop  from '../pieces/bishop.js'
+import Queen  from '../pieces/queen.js'
+import King  from '../pieces/king.js'
 
 let wp00 = new Pawn()
 let wp01 = new Pawn()
