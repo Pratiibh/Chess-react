@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import * as boardItems from './board/startingBoard.js'
+console.log(boardItems.startingBoard)
+
 function App() {
   return (
     <div className="App">
