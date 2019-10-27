@@ -65,7 +65,7 @@ wkng = new King()
 bkng = new King()
 
 
-export default null;
+// export default null;
 export {
     startingBoard,
     wr00, wk00, wb00, wque, wkng, wb01, wk01, wr01,

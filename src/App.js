@@ -12,7 +12,7 @@ function App() {
   let [state, setState] = useState({});
   useEffect(() => {
     setState(boardItems);
-  })
+  }, [])
   console.log(state)
   return (
     <div className="App">

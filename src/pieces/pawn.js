@@ -2,14 +2,13 @@
 
 export default class Pawn {
   constructor(startingSpace, color, board) {
-    availableMoves: this.howItMoves(startingSpace, color, board) // [move spaces]
-    monitoredSpaces: this.howItMonitors(startingSpace, color, board) // [monitored spaces]
-    currentSpace: startingSpace
-    startingSpace: startingSpace
+    this.currentSpace = startingSpace
+    this.startingSpace = startingSpace
+    this.availableMoves = this.howItMoves(this.startingSpace, color, board) // [move spaces]
+    this.monitoredSpaces = this.howItMonitors(this.startingSpace, color, board) // [monitored spaces]
   }
   name = 'Pawn'
   howItMoves = (currentSpace, color, board) => {
-
     let newAvailableMoves = [];
     let [y, x] = currentSpace;
 
@@ -19,7 +18,7 @@ export default class Pawn {
         newAvailableMoves.push([y + 1, x])
         //if this position is available, add it to this piece's available moves
 
-        if (!board[y + 2][x] && currentSpace[0] === startingSpace[0] && currentSpace[1] === startingSpace[1]) { newAvailableMoves.push([y + 2, x]) }
+        if (!board[y + 2][x] && currentSpace[0] === this.startingSpace[0] && currentSpace[1] === this.startingSpace[1]) { newAvailableMoves.push([y + 2, x]) }
         //if this position is available and this piece is in the starting space, add position to available moves
       }
       if (board[y + 1][x + 1] && board[y + 1][x + 1].color === 'black') { newAvailableMoves.push([y + 1][x + 1]) }
@@ -33,7 +32,7 @@ export default class Pawn {
         newAvailableMoves.push([y - 1, x])
         //if this position is available, add it to this piece's available moves
 
-        if (!board[y - 2][x] && currentSpace[0] === startingSpace[0] && currentSpace[1] === startingSpace[1]) { newAvailableMoves.push([y - 2, x]) }
+        if (!board[y - 2][x] && currentSpace[0] === this.startingSpace[0] && currentSpace[1] === this.startingSpace[1]) { newAvailableMoves.push([y - 2, x]) }
         //if this position is available and this piece is in the starting space, add position to available moves
       }
       if (board[y - 1][x + 1] && board[y - 1][x + 1].color === 'white') { newAvailableMoves.push([y - 1][x + 1]) }
