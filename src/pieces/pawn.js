@@ -1,7 +1,9 @@
 // 'use strict'
 
+import skeletonBoard from '../board/skeletonBoard.js'
+
 export default class Pawn {
-  constructor(startingSpace, color, board) {
+  constructor(startingSpace, color, board = skeletonBoard) {
     this.currentSpace = startingSpace
     this.startingSpace = startingSpace
     this.availableMoves = this.howItMoves(this.startingSpace, color, board) // [move spaces]
