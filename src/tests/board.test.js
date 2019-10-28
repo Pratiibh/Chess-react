@@ -63,7 +63,7 @@ describe('starting board Pawn tests', () => {
   arrOfPawns.forEach(pawn => {
     endRows.forEach(space => {
       it('Cannot move to back rows', () => {
-        expect(pawn.availableMoves.includes(space)).toBeFalsy();
+        expect(pawn.availableMoves).not.toContainEqual(space);
       });
     });
   });
@@ -71,16 +71,15 @@ describe('starting board Pawn tests', () => {
   arrOfPawns.forEach((pawn) => {
     it('Pawns CAN move to the space in front of them', () => {
       if (pawn.color === 'white') {
-        expect(
-          pawn.availableMoves.includes([pawn.currentSpace[0 + 1], pawn.currentSpace[1]]) &&
-          pawn.availableMoves.includes([pawn.currentSpace[0 + 2], pawn.currentSpace[1]])
-        ).toBeTruthy()
+        expect(pawn.availableMoves).toContainEqual([pawn.currentSpace[0] +1, pawn.currentSpace[1]])
+        &&
+        expect(pawn.availableMoves).toContainEqual([pawn.currentSpace[0] + 2, pawn.currentSpace[1]])
+
       };
       if (pawn.color === 'black') {
-        expect(
-          pawn.availableMoves.includes([pawn.currentSpace[0 - 1], pawn.currentSpace[1]]) &&
-          pawn.availableMoves.includes([pawn.currentSpace[0 - 2], pawn.currentSpace[1]])
-        ).toBeTruthy()
+        expect(pawn.availableMoves).toContainEqual([pawn.currentSpace[0] - 1, pawn.currentSpace[1]])
+        &&
+        expect(pawn.availableMoves).toContainEqual([pawn.currentSpace[0] - 2, pawn.currentSpace[1]])
       }
     })
   })
