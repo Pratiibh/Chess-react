@@ -1,20 +1,20 @@
 import React, {useState, useEffect}from 'react';
 import logo from './logo.svg';
 import './App.css';
+import VisualBoard from './components/visualBoard.js'
 
 //this imports the board as well as all the objects (pieces) 
 // naming convention is in notes folder
 import * as boardItems from './board/startingBoard.js'
-// console.log(boardItems.startingBoard)
-// console.log(boardItems.br00)
 
 function App() {
   let [state, setState] = useState({});
   useEffect(() => {
-    setState(boardItems);
+    setState({...boardItems});
   }, [])
-  console.log(state)
+  // console.log(state)
   return (
+    <>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -31,6 +31,8 @@ function App() {
         </a>
       </header>
     </div>
+    <VisualBoard board={state}/>
+    </>
   );
 }
 
