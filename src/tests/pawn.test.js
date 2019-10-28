@@ -7,7 +7,6 @@ import Pawn from '../pieces/pawn.js'
 describe('Tests for isolated Pawns', () => {
     it('Can move forward', () => {
         let wp00 = new Pawn([1, 0], 'white');
-        console.log(wp00.availableMoves);
         expect(wp00.availableMoves).toContainEqual([2,0])
     });
 
@@ -16,9 +15,7 @@ describe('Tests for isolated Pawns', () => {
         skeletonBoard[2][1] = bp00;
         let wp00 = new Pawn([1,0], 'white', skeletonBoard);
         skeletonBoard[1][0] = wp00;
-        console.log(skeletonBoard)
-        console.log(wp00)
-        expect(wp00.availableMoves).toContainEqual([2,1])
-    })
+        expect(wp00.availableMoves).toContainEqual([2,1]);
+    });
 
 })
