@@ -8,6 +8,7 @@ export default class Pawn {
     this.startingSpace = startingSpace
     this.availableMoves = this.howItMoves(this.startingSpace, color, board) // [move spaces]
     this.monitoredSpaces = this.howItMonitors(this.startingSpace, color, board) // [monitored spaces]
+    this.color = color
   }
   name = 'Pawn'
   howItMoves = (currentSpace, color, board) => {
@@ -23,8 +24,8 @@ export default class Pawn {
         if (!board[y + 2][x] && currentSpace[0] === this.startingSpace[0] && currentSpace[1] === this.startingSpace[1]) { newAvailableMoves.push([y + 2, x]) }
         //if this position is available and this piece is in the starting space, add position to available moves
       }
-      if (board[y + 1][x + 1] && board[y + 1][x + 1].color === 'black') { newAvailableMoves.push([y + 1][x + 1]) }
-      if (board[y + 1][x - 1] && board[y + 1][x - 1].color === 'black') { newAvailableMoves.push([y + 1][x - 1]) }
+      if (board[y + 1][x + 1] && board[y + 1][x + 1].color === 'black') { newAvailableMoves.push([y + 1,x + 1]) }
+      if (board[y + 1][x - 1] && board[y + 1][x - 1].color === 'black') { newAvailableMoves.push([y + 1,x - 1]) }
       //attack options: if forward diagnal positions are occupied by enemy piece, add position to available moves
     }
 
@@ -37,8 +38,8 @@ export default class Pawn {
         if (!board[y - 2][x] && currentSpace[0] === this.startingSpace[0] && currentSpace[1] === this.startingSpace[1]) { newAvailableMoves.push([y - 2, x]) }
         //if this position is available and this piece is in the starting space, add position to available moves
       }
-      if (board[y - 1][x + 1] && board[y - 1][x + 1].color === 'white') { newAvailableMoves.push([y - 1][x + 1]) }
-      if (board[y - 1][x - 1] && board[y - 1][x - 1].color === 'white') { newAvailableMoves.push([y - 1][x - 1]) }
+      if (board[y - 1][x + 1] && board[y - 1][x + 1].color === 'white') { newAvailableMoves.push([y - 1,x + 1]) }
+      if (board[y - 1][x - 1] && board[y - 1][x - 1].color === 'white') { newAvailableMoves.push([y - 1,x - 1]) }
       //attack options: if forward diagnal positions are occupied by enemy piece, add position to available moves
     }
     return newAvailableMoves /*board[i][j]*/
