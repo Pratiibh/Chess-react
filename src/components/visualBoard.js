@@ -11,7 +11,7 @@ export default ((props) => {
           <li id={idx} >
             <ul>
               {row.map((item,idx) => {
-                if(item.name){
+                if(item && item.name){
                 return (
                   <li id={idx}>
                   { item.name }
