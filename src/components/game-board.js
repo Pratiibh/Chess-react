@@ -5,7 +5,7 @@ export default ((props) => {
   let board = props.board.startingBoard
   return (
     <div >
-    <ul style={{listStyle: 'none'}}>
+    {/* <ul style={{listStyle: 'none'}}>
       {board && board.map((row, idx) => {
         return (
           <li id={idx} >
@@ -33,7 +33,7 @@ export default ((props) => {
           </li>
         )
       })}
-    </ul>
+    </ul> */}
     </div>
   )
 })

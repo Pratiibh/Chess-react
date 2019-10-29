@@ -9,7 +9,7 @@ export default class Pawn extends Piece {
     this.availableMoves = this.howItMoves(this.startingSpace, color, board) // [move spaces]
     this.monitoredSpaces = this.howItMonitors(this.startingSpace, color, board) // [monitored spaces]
   }
-  name = 'Pawn'
+  name = 'Pawn ' + this.startingSpace
   howItMoves = (currentSpace, color, board) => {
     let newAvailableMoves = [];
     let [y, x] = currentSpace;
