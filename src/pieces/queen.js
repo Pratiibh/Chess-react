@@ -1,8 +1,8 @@
 // 'use strict'
 
-export default class Bishop{
+export default class Queen{
     constructor(startingSpace, color, board){
 
     }
-    name = 'bishop'
+    name = 'Queen'
 } 
