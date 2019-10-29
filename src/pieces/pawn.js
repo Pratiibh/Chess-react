@@ -5,12 +5,9 @@ import Piece from './piece.js'
 
 export default class Pawn extends Piece {
   constructor(startingSpace, color, board = skeletonBoard) {
-    super()
-    this.currentSpace = startingSpace
-    this.startingSpace = startingSpace
+    super(startingSpace,color)
     this.availableMoves = this.howItMoves(this.startingSpace, color, board) // [move spaces]
     this.monitoredSpaces = this.howItMonitors(this.startingSpace, color, board) // [monitored spaces]
-    this.color = color
   }
   name = 'Pawn'
   howItMoves = (currentSpace, color, board) => {
@@ -57,11 +54,5 @@ export default class Pawn extends Piece {
     return monitoredSpaces
   }
 
-  checkAvailableMoves = (updatedSpace, board) => {
-    const newAvailableMoves = this.howItMoves(updatedSpace, this.color, board);
-    const newMonitor = this.howItMonitors(updatedSpace, this.color);
-    //felt cute, might update state later
-    this.availableMoves = newAvailableMoves;
-    this.monitoredSpaces = newMonitor;
-  }
+
 } 
