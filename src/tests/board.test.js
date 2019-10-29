@@ -85,12 +85,9 @@ describe('starting board Pawn tests', () => {
   })
 
   it('can recompute moves correctly', () => {
-    let tempBoard = [...board.startingBoard]
-    let tempPawn = board.wp00
-    tempBoard[5][0] = tempPawn;
-    tempBoard[1][0] = null;
-    tempPawn.currentSpace = [5,0];
-    tempPawn.checkAvailableMoves(tempPawn.currentSpace, tempBoard);
+    let tempBoard = [...board.startingBoard];
+    let tempPawn = board.wp00;
+    tempPawn.move([5,0], tempBoard);
     expect(tempPawn.availableMoves).toContainEqual([6,1])
   })
 

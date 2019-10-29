@@ -33,5 +33,25 @@ export default class Piece {
     }
     else { return false }
   }
+  
+  move(space,board){
+    let [y,x] = [space[0],space[1]]
+    let [oy,ox] = [...this.currentSpace]
+    board[oy][ox] = null
+    board[y][x] = this
+    this.currentSpace = [...space]
+    this.checkAvailableMoves(space,board)
+    return board
+  }
 
 }
+
+/*
+    let tempBoard = [...board.startingBoard]
+    let tempPawn = board.wp00
+    tempBoard[5][0] = tempPawn;
+    tempBoard[1][0] = null;
+    tempPawn.currentSpace = [5,0];
+    tempPawn.checkAvailableMoves(tempPawn.currentSpace, tempBoard);
+    expect(tempPawn.availableMoves).toContainEqual([6,1])
+*/
