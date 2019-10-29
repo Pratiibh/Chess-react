@@ -1,26 +1,32 @@
 import React from 'react';
 
+
 export default ((props) => {
-  // console.log(props.board)
   let board = props.board.startingBoard
   console.log(board)
   return (
-    <ul>
+    <div >
+    <ul style={{listStyle: 'none'}}>
       {board && board.map((row, idx) => {
         return (
           <li id={idx} >
-            <ul>
+            <ul style = {{
+              listStyle: 'none',
+              display: 'flex',
+              justifyContent: 'space-evenly',
+
+            }} >
               {row.map((item,idx) => {
                 if(item && item.name){
                 return (
-                  <li id={idx}>
+                  <li style={{}}id={idx}>
                   { item.name }
                   </li>
                   )
                 }
                 else{
                   return(
-                    <li />
+                    <li>-</li>
                   )
                   }
               })}
@@ -29,5 +35,9 @@ export default ((props) => {
         )
       })}
     </ul>
+    </div>
   )
 })
+
+
+
