@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import skeletonBoard from '../board/skeletonBoard.js';
 import * as board from '../board/startingBoard.js'
-
+import Queen from '../pieces/queen.js'
 
 /*
 it('renders without crashing', () => {
@@ -96,4 +96,12 @@ describe('starting board Pawn tests', () => {
     let tempPawn = board.wp00;
     expect(tempPawn.isFoe([2,0], tempBoard)).toBeFalsy();
   })
+
+  it('Queen updates available moves', () => {
+    let tempBoard = [... board.startingBoard];
+    let tempQueen = board.bque;
+    tempQueen.move([3,3], tempBoard);
+    // tempQueen.checkAvailableMoves(tempQueen.currentSpace, tempBoard)
+    // console.log(tempQueen)
+  });
 })
