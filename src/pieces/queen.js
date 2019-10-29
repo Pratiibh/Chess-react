@@ -3,6 +3,7 @@ import Piece from "./piece"
 
 // 'use strict'
 
+<<<<<<< HEAD
 export default class Queen extends Piece{
   constructor(startingSpace, color, board = skeletonBoard) {
     super(startingSpace,color)
@@ -43,3 +44,11 @@ canMove(space, board) {
 checkAvailableMoves = (updatedSpace, board) => {
 move(space,board){
 */
+=======
+export default class Queen{
+    constructor(startingSpace, color, board){
+
+    }
+    name = 'Queen'
+} 
+>>>>>>> 1061295903c6b52019cb643ec59638edf8271ef7

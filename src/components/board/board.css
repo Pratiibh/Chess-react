@@ -1,0 +1,32 @@
+body {
+  margin: 20px;
+  background-color: #ECECEA;
+}
+
+.board-row {
+  display: table;
+}
+
+.square-base {
+  background: transparent;
+  border: 1px solid transparent;
+  float: left;
+  font-size: 8px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 48px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 48px;
+  color: white;
+}
+
+.dark-square{
+background-color: RGB(0, 0, 0);
+}
+
+.light-square{
+    background-color: RGB(201, 201, 201);
+}
