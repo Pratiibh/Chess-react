@@ -3,7 +3,6 @@ import React from 'react';
 
 export default ((props) => {
   let board = props.board.startingBoard
-  console.log(board)
   return (
     <div >
     <ul style={{listStyle: 'none'}}>
