@@ -1,9 +1,11 @@
 // 'use strict'
 
 import skeletonBoard from '../board/skeletonBoard.js'
+import Piece from './piece.js'
 
-export default class Pawn {
+export default class Pawn extends Piece {
   constructor(startingSpace, color, board = skeletonBoard) {
+    super()
     this.currentSpace = startingSpace
     this.startingSpace = startingSpace
     this.availableMoves = this.howItMoves(this.startingSpace, color, board) // [move spaces]
