@@ -91,4 +91,9 @@ describe('starting board Pawn tests', () => {
     expect(tempPawn.availableMoves).toContainEqual([6,1])
   })
 
+  it('"can move" correctly', () => {
+    let tempBoard = [...board.startingBoard];
+    let tempPawn = board.wp00;
+    expect(tempPawn.isFoe([2,0], tempBoard)).toBeFalsy();
+  })
 })
