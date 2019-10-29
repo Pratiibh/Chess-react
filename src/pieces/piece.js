@@ -26,9 +26,19 @@ export default class Piece {
     }
   }
 
+  isOnBoard(space){
+    let [y,x] = [...space];
+    if(y >= 0 && y <= 7 && x >= 0 && x <= 7){
+      return true
+    }
+    else{
+      return false
+    }
+  }
+
   canMove(space, board) {
     let [s,b] = [space,board];
-    if ((!this.isFriend(s, b)) && ( this.isEmpty(s, b) || this.isFoe(s, b) )){
+    if ((!this.isFriend(s, b)) && ( this.isEmpty(s, b) || this.isFoe(s, b) ) && this.isOnBoard(space)){
       return true
     }
     else { return false }
