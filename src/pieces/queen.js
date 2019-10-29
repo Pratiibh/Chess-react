@@ -16,7 +16,6 @@ export default class Queen extends Piece{
     // this.slide([0,-1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
     //right
     // console.log([0,1], this.currentSpace, board)
-    console.log(this.slide)
     this.slide([0,1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
     //up
     // this.slide([1,0], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));

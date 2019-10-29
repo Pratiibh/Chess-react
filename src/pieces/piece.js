@@ -7,6 +7,7 @@ export default class Piece {
   }
 
   isFriend(space, board) {
+    console.log(board)
     let [y, x] = [space[0], space[1]]
     if (board[y][x] && board[y][x].color === this.color) {
       return true
