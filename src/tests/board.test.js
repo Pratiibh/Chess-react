@@ -156,4 +156,18 @@ describe('starting board Pawn tests', () => {
       [2, 5], [2, 1]
     ])
   });
+
+  it('King updates available moves', () => {
+    let tempBoard = [... board.startingBoard];
+    let tempKing = board.bkng;
+    // console.log(tempBoard);
+    tempBoard = tempKing.move([3,3], tempBoard);
+    // console.log(tempKing.availableMoves);
+    expect(tempKing.availableMoves).toEqual(  [
+      [4, 2], [4, 3],
+      [4, 4], [3, 2],
+      [3, 4], [2, 2],
+      [2, 3], [2, 4]
+    ])
+  });
 })
