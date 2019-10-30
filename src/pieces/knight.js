@@ -4,13 +4,36 @@ import Piece from './piece.js'
 import blackIcon from '../assets/chess-icons/bkn.svg'
 import whiteIcon from '../assets/chess-icons/wkn.svg'
 
-export default class Knight extends Piece{
-    constructor(startingSpace, color, board){
-      super(startingSpace,color)
+export default class Knight extends Piece {
+  constructor(startingSpace, color, board) {
+    super(startingSpace, color)
 
+  }
+  name = 'Knight'
+  icon = this.color === 'white' ? whiteIcon : blackIcon;
+  position = this.startingSpace;
+
+  howItMoves = (currentSpace, color, board) => {
+    // console.log('queen how it moves');
+    // console.log(currentSpace, color, board);
+    let newAvailableMoves = [];
+    let knightmoves = [[2,1],[-2,-1],[2,-1],[-2,1],[1,2],[1,-2],[-1,2],[-1,-2]];
+    let arrAdd = function(current, delta){
+      let [cy,cx] = [...current];
+      let [dy,dx] = [...delta];
+      [cy,cx,dy,dx] = [parseInt(cy),parseInt(cx),parseInt(dy),parseInt(dx)];
+      return [cy + dy, cx + dx];
     }
-    name = 'Knight'
-    icon = this.color === 'white' ? whiteIcon : blackIcon;
-    position = this.startingSpace;
+    let possMoves = [];
+    knightmoves.forEach(move => {
+      possMoves.push(arrAdd(this.currentSpace,move))
+    })
+    possMoves.filter(move => this.canMove(move,board))
+    newAvailableMoves = [...possMoves]
+    return newAvailableMoves
+  }
 
+  howItMonitors = (newSpace, color, board) => {
+    return this.howItMoves(newSpace, color, board)
+  }
 } 
