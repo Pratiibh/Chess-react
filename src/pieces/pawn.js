@@ -2,6 +2,8 @@
 
 import skeletonBoard from '../board/skeletonBoard.js'
 import Piece from './piece.js'
+import blackIcon from '../assets/chess-icons/bp.svg'
+import whiteIcon from '../assets/chess-icons/wp.svg'
 
 export default class Pawn extends Piece {
   constructor(startingSpace, color, board = skeletonBoard) {
@@ -10,7 +12,8 @@ export default class Pawn extends Piece {
     this.monitoredSpaces = this.howItMonitors(this.startingSpace, color, board) // [monitored spaces]
   }
   name = 'Pawn'
-  coordinate = this.startingSpace
+  icon = this.color === 'white' ? whiteIcon : blackIcon;
+  position = this.startingSpace;
 
   howItMoves = (currentSpace, color, board) => {
     let newAvailableMoves = [];
