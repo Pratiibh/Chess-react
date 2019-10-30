@@ -24,6 +24,10 @@
     - two spaces forward and one space to the right
     - one space forward and two spaces to the left
     - one space forward and two spaces to the right
+    - two spaces backward and one space to the left
+    - two spaces backward and one space to the right
+    - one space backward and two spaces to the left
+    - one space backward and two spaces to the right
 - cannot move onto a space if it is occupied by an ally piece
 - can kill enemy pieces by moving on top of their respective position
 - can "jump" over ally/enemy pieces
