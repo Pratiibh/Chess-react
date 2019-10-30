@@ -115,4 +115,32 @@ describe('starting board Pawn tests', () => {
       [ 1, 5 ]
     ])
   });
+
+  it('Rook updates available moves', () => {
+    let tempBoard = [... board.startingBoard];
+    let tempRook = board.br00;
+    // console.log(tempBoard);
+    tempBoard = tempRook.move([3,3], tempBoard);
+    expect(tempRook.availableMoves).toEqual(  [
+      [ 3, 2 ], [ 3, 1 ],
+      [ 3, 0 ], [ 3, 4 ],
+      [ 3, 5 ], [ 3, 6 ],
+      [ 3, 7 ], [ 4, 3 ],
+      [ 5, 3 ], [ 2, 3 ],
+      [ 1, 3 ]
+    ])
+  });
+
+  it('Bishop updates available moves', () => {
+    let tempBoard = [... board.startingBoard];
+    let tempBishop = board.bb00;
+    // console.log(tempBoard);
+    tempBoard = tempBishop.move([3,3], tempBoard);
+    expect(tempBishop.availableMoves).toEqual(  [
+      [ 4, 2 ], [ 5, 1 ],
+      [ 4, 4 ], [ 5, 5 ], 
+      [ 2, 2 ], [ 1, 1 ], 
+      [ 2, 4 ], [ 1, 5 ]
+    ])
+  });
 })

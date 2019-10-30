@@ -58,3 +58,6 @@
     - if a piece is moved into a position where it threatens (can move onto the King with its next move) a King, that King is put into check
         - a player whose King is put into check must move the King into a position where it is not in check with their next move
         - if a player is unable to move their King out of check, the player is put into checkmate and therefore loses the game
+
+## Mechanics
+- Removed (dead) pieces should be displayed by the side for each player to see
