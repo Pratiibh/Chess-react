@@ -143,4 +143,17 @@ describe('starting board Pawn tests', () => {
       [ 2, 4 ], [ 1, 5 ]
     ])
   });
+
+  it('Knight updates available moves', () => {
+    let tempBoard = [... board.startingBoard];
+    let tempKnight = board.bk00;
+    // console.log(tempBoard);
+    tempBoard = tempKnight.move([3,3], tempBoard);
+    expect(tempKnight.availableMoves).toEqual(  [
+      [5, 4], [1, 2],
+      [5, 2], [1, 4],
+      [4, 5], [4, 1],
+      [2, 5], [2, 1]
+    ])
+  });
 })
