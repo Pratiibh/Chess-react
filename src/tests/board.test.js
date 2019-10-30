@@ -97,11 +97,10 @@ describe('starting board Pawn tests', () => {
     expect(tempPawn.isFoe([2,0], tempBoard)).toBeFalsy();
   })
 
-  it('Queen updates available moves', () => {
+  xit('Queen updates available moves', () => {
     let tempBoard = [... board.startingBoard];
     let tempQueen = board.bque;
     tempQueen.move([3,3], tempBoard);
-    // tempQueen.checkAvailableMoves(tempQueen.currentSpace, tempBoard)
-    // console.log(tempQueen)
+    console.log(tempQueen)
   });
 })

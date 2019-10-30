@@ -7,9 +7,10 @@ export default class Piece {
   }
 
   isFriend(space, board) {
-    console.log(board)
+    
     let [y, x] = [space[0], space[1]]
-    if (board[y][x] && board[y][x].color === this.color) {
+    if (board[y][x] && 
+      board[y][x].color === this.color) {
       return true
     }
     else {
@@ -18,42 +19,50 @@ export default class Piece {
   }
 
   isFoe(space, board) {
-    if (board[space[0]][space[1]] && board[space[0]][space[1]].color && board[space[0]][space[1]].color !== this.color) {
+    if (board[space[0]][space[1]] &&
+      board[space[0]][space[1]].color &&
+      board[space[0]][space[1]].color !== this.color
+    ) {
       return true
     }
-    else {
-      return false;
-    }
+    else { return false; }
   }
 
   isEmpty(space, board) {
-    if (board[space[0]][space[1]] && board[space[0]][space[1]].color) {
+    if (
+      board[space[0]][space[1]] &&
+      board[space[0]][space[1]].color) {
       return false;
     }
-    else {
-      return true;
-    }
+    else { return true; }
   }
 
   isOnBoard(space) {
     let [y, x] = [...space];
-    if (y >= 0 && y <= 7 && x >= 0 && x <= 7) {
+    if (
+      y >= 0 &&
+      y <= 7 &&
+      x >= 0 &&
+      x <= 7) {
       return true
     }
-    else {
-      return false
-    }
+    else { return false }
   }
 
   canMove(space, board) {
     let [s, b] = [space, board];
-    if ((this.isOnBoard(space) && !this.isFriend(s, b)) && (this.isEmpty(s, b) || this.isFoe(s, b))) {
+    if (
+      (this.isOnBoard(space) && !this.isFriend(s, b)) 
+      && 
+      (this.isEmpty(s, b) || this.isFoe(s, b))
+      ) {
       return true
     }
     else { return false }
   }
 
   checkAvailableMoves = (updatedSpace, board) => {
+    console.log(updatedSpace, this.color, board)
     const newAvailableMoves = this.howItMoves(updatedSpace, this.color, board);
     const newMonitor = this.howItMonitors(updatedSpace, this.color);
     //felt cute, might update state later
@@ -84,7 +93,6 @@ export default class Piece {
       }
       current = [cy + dy, cx + dx];
     }
-    // console.log(newAvailableMoves)
     return newAvailableMoves;
   }
 

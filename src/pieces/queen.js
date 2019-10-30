@@ -3,21 +3,19 @@ import Piece from "./piece"
 
 // 'use strict'
 
-<<<<<<< HEAD
 export default class Queen extends Piece{
   constructor(startingSpace, color, board = skeletonBoard) {
     super(startingSpace,color)
-    this.availableMoves = this.howItMoves(board) // [move spaces]
-    this.monitoredSpaces = this.howItMonitors(board) // [monitored spaces]
+    this.availableMoves = this.howItMoves(null,null,board) // [move spaces]
+    // this.monitoredSpaces = this.howItMonitors(board) // [monitored spaces]
   }
   howItMoves = (currentSpace, color, board) => {
     // console.log(currentSpace, color, board);
     let newAvailableMoves = [];
     //left
-    // this.slide([0,-1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    this.slide([0,-1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
     //right
-    // console.log([0,1], this.currentSpace, board)
-    this.slide([0,1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    // this.slide([0,1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
     //up
     // this.slide([1,0], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
     //down
@@ -36,7 +34,6 @@ export default class Queen extends Piece{
   howItMonitors = (board) => {
     return this.howItMoves(board)
   }
-
   name = 'queen'
 } 
 /*
@@ -44,11 +41,3 @@ canMove(space, board) {
 checkAvailableMoves = (updatedSpace, board) => {
 move(space,board){
 */
-=======
-export default class Queen{
-    constructor(startingSpace, color, board){
-
-    }
-    name = 'Queen'
-} 
->>>>>>> 1061295903c6b52019cb643ec59638edf8271ef7
