@@ -62,15 +62,15 @@ export default class Piece {
   }
 
   checkAvailableMoves = (updatedSpace, board) => {
-    console.log(updatedSpace, this.color, board)
     const newAvailableMoves = this.howItMoves(updatedSpace, this.color, board);
-    const newMonitor = this.howItMonitors(updatedSpace, this.color);
+    const newMonitor = this.howItMonitors(updatedSpace, this.color, board);
     //felt cute, might update state later
     this.availableMoves = newAvailableMoves;
     this.monitoredSpaces = newMonitor;
   }
 
   move(space, board) {
+    // console.log(space,board)
     let [y, x] = [space[0], space[1]]
     let [oy, ox] = [...this.currentSpace]
     board[oy][ox] = null
@@ -85,13 +85,15 @@ export default class Piece {
     let [y, x] = [currentSpace[0], currentSpace[1]];
     let [dy, dx] = [direction[0], [direction[1]]];
     let current = [y + parseInt(dy), x + parseInt(dx)];
+    
     while (this.canMove(current, board)) {
       let [cy, cx] = [...current];
       newAvailableMoves.push(current);
       if (this.isFoe(current, board)) {
         break;
       }
-      current = [cy + dy, cx + dx];
+      current = [cy + parseInt(dy), cx + parseInt(dx)];
+      // console.log(current)
     }
     return newAvailableMoves;
   }

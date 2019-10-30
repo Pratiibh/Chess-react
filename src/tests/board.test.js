@@ -97,10 +97,22 @@ describe('starting board Pawn tests', () => {
     expect(tempPawn.isFoe([2,0], tempBoard)).toBeFalsy();
   })
 
-  xit('Queen updates available moves', () => {
+  it('Queen updates available moves', () => {
     let tempBoard = [... board.startingBoard];
     let tempQueen = board.bque;
-    tempQueen.move([3,3], tempBoard);
-    console.log(tempQueen)
+    // console.log(tempBoard);
+    tempBoard = tempQueen.move([3,3], tempBoard);
+    expect(tempQueen.availableMoves).toEqual(  [
+      [ 3, 2 ], [ 3, 1 ],
+      [ 3, 0 ], [ 3, 4 ],
+      [ 3, 5 ], [ 3, 6 ],
+      [ 3, 7 ], [ 4, 3 ],
+      [ 5, 3 ], [ 2, 3 ],
+      [ 1, 3 ], [ 4, 2 ],
+      [ 5, 1 ], [ 4, 4 ],
+      [ 5, 5 ], [ 2, 2 ],
+      [ 1, 1 ], [ 2, 4 ],
+      [ 1, 5 ]
+    ])
   });
 })
