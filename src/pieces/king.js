@@ -16,7 +16,7 @@ export default class King extends Piece{
       // console.log('queen how it moves');
       // console.log(currentSpace, color, board);
       let newAvailableMoves = [];
-      let kingMoves = [[-1,1],[0,1],[1,1],[0,-1],[0,1],[-1,-1],[-1,0],[-1,1]];
+      let kingMoves = [[1,-1],[1,0],[1,1],[0,-1],[0,1],[-1,-1],[-1,0],[-1,1]];
       let arrAdd = function(current, delta){
         let [cy,cx] = [...current];
         let [dy,dx] = [...delta];
