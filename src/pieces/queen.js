@@ -4,13 +4,46 @@ import Piece from './piece.js'
 import blackIcon from '../assets/chess-icons/bq.svg'
 import whiteIcon from '../assets/chess-icons/wq.svg'
 
+
+
 export default class Queen extends Piece{
-    constructor(startingSpace, color, board){
-      super(startingSpace,color)
+  constructor(startingSpace, color, board = skeletonBoard) {
+    super(startingSpace,color)
+    this.availableMoves = this.howItMoves(null,null,board) // [move spaces]
+    // this.monitoredSpaces = this.howItMonitors(board) // [monitored spaces]
+  }
+  name = 'Queen'
+  icon = this.color === 'white' ? whiteIcon : blackIcon;
+  position = this.startingSpace;
 
-    }
-    name = 'Queen'
-    icon = this.color === 'white' ? whiteIcon : blackIcon;
-    position = this.startingSpace;
-
+  howItMoves = (currentSpace, color, board) => {
+    // console.log(currentSpace, color, board);
+    let newAvailableMoves = [];
+    //left
+    this.slide([0,-1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    //right
+    // this.slide([0,1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    //up
+    // this.slide([1,0], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    //down
+    // this.slide([-1,0], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    //upleft
+    // this.slide([1,-1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    //upright
+    // this.slide([1,1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    //downleft
+    // this.slide([-1,-1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    //downright
+    // this.slide([-1,1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));
+    return newAvailableMoves
+  }
+  
+  howItMonitors = (board) => {
+    return this.howItMoves(board)
+  }
 } 
+/*
+canMove(space, board) {
+checkAvailableMoves = (updatedSpace, board) => {
+move(space,board){
+*/
