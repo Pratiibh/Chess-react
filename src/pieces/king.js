@@ -31,4 +31,7 @@ export default class King extends Piece{
       newAvailableMoves = [...possMoves]
       return newAvailableMoves
     }
+    howItMonitors = (newSpace, color, board) => {
+      return this.howItMoves(newSpace, color, board)
+    }
 } 
