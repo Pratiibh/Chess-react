@@ -83,7 +83,6 @@ export default class Piece {
   }
 
   move(space, board, allPiecesArr) {
-    // console.log(space,board)
     let [y, x] = [space[0], space[1]]
     let [oy, ox] = [...this.currentSpace]
     board[oy][ox] = null
@@ -110,7 +109,6 @@ export default class Piece {
         break;
       }
       current = [cy + parseInt(dy), cx + parseInt(dx)];
-      // console.log(current)
     }
     return newAvailableMoves;
   }
