@@ -12,3 +12,4 @@
   [br00,bk00,bb00,bque,bkng,bb01,bk01,br01],
 ]
 
+//AJ don't forget to fix shrinking

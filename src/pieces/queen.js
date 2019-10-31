@@ -14,7 +14,7 @@ export default class Queen extends Piece{
   }
   name = 'Queen'
   icon = this.color === 'white' ? whiteIcon : blackIcon;
-  position = this.startingSpace;
+  position = this.currentSpace;
 
   howItMoves = (currentSpace, color, board) => {
     let newAvailableMoves = [];

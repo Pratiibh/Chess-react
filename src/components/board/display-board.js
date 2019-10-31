@@ -1,18 +1,16 @@
 import React from 'react';
-
 import './board.css';
-import Square from './squares.js';
+import Spaces from './spaces.js';
 
 export default class Board extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
-  renderSquare(i, j, squareShade) {
+  renderSpace(i, j, spaceShade) {
     let boardItems = this.props.board.startingBoard;
-    return <Square
-    piece={boardItems && boardItems[i][j]}
-    shade={squareShade}
+    return <Spaces
+    piece={boardItems[i][j]}
+    shade={spaceShade}
+    ycoord={i}
+    xcoord={j}
     />
   }
 
@@ -21,12 +19,12 @@ export default class Board extends React.Component {
     for (let i = 0; i < 8; i++) {
       const rows = [];
       for (let j = 0; j < 8; j++) {
-        let squareShade;
-        if( isLightSquare(i) && isLightSquare(j) || !isLightSquare(i) && !isLightSquare(j) ) {squareShade = "light-square"}
+        let spaceShade;
+        if( (isLightSpace(i) && isLightSpace(j)) || (!isLightSpace(i) && !isLightSpace(j)) ) {spaceShade = "light-space"}
         //if position is comprised of both even numbers or odd numbers
-        //assign class name 'light-square' other wise assign 'dark-square'
-        else  { squareShade = "dark-square"}
-        rows.push(this.renderSquare(i, j, squareShade));
+        //assign class name 'light-space' other wise assign 'dark-space'
+        else  { spaceShade = "dark-space"}
+        rows.push(this.renderSpace(i, j, spaceShade));
       }
       board.push(<div className="board-row">{rows}</div>)
     }
@@ -39,6 +37,6 @@ export default class Board extends React.Component {
   }
 }
 
-function isLightSquare(int) {
-  return int % 2 == 0;
+function isLightSpace(int) {
+  return int % 2 === 0;
 }
