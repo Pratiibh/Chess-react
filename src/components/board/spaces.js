@@ -6,15 +6,19 @@ export default function Spaces(props) {
   let targetId;
   const showAvailableMoves = (moves) => {
     moves.forEach((move, idx) => {
-      let newClass = "space-default " + "test"
+      // let newClass = "space-default " + props.shade + " test"
       targetId = `y${move[0]}x${move[1]}`
       let myId = document.getElementById(targetId);
-      myId.setAttribute("class", newClass)
+      myId.classList.add("flash")
       })
   }
 
-  const returnToDefault = () => {
-    
+  const returnToDefault = (spaces) => {
+    spaces.forEach((space, idx) => {
+      targetId = `y${space[0]}x${space[1]}`
+      let myId = document.getElementById(targetId);
+      myId.classList.remove("flash");
+      })
   }
 
     return (
@@ -28,8 +32,9 @@ export default function Spaces(props) {
       // </span>
 
        <span id={id} className={defaultClass} 
-       onMouseLeave={() => {returnToDefault()}}
-       onMouseOver={ () => { showAvailableMoves(props.piece.availableMoves) }
+       onMouseLeave={() => {returnToDefault(props.piece.availableMoves)}}
+       onMouseOver={ () => { 
+         showAvailableMoves(props.piece.availableMoves) }
   
        }>
 

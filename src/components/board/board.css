@@ -42,13 +42,14 @@ background-color: RGB(125, 135, 150);
  }
  @keyframes flash {
   0% { opacity: .3; }
-  100% { opacity: 1; }
+  100% { opacity: .7; }
  }
 
  .flash {
+  background-color: green;
   opacity: 1;
-  -webkit-animation: flash 5s;
-  animation: flash 5s;
+  -webkit-animation: flash 8s;
+  animation: flash 8s;
  }
 
  @-webkit-keyframes flash {
