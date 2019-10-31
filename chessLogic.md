@@ -49,6 +49,7 @@
 - can kill enemy pieces by moving on top of their respective position
 - cannot move past ally pieces
 - cannot move onto a space if it is occupied by an ally piece
+- cannot move onto any space that would be adjacent to an enemy king
 - has unique mechanic called Castling
     - this mechanic requires the King and a Rook
     - as long as the King and the Rook you want to castle with have not moved from their starting positions, you may swap them
@@ -59,5 +60,9 @@
         - a player whose King is put into check must move the King into a position where it is not in check with their next move
         - if a player is unable to move their King out of check, the player is put into checkmate and therefore loses the game
 
-## Mechanics
+
+## General Mechanics
 - Removed (dead) pieces should be displayed by the side for each player to see
+- Players cannot move pieces in such ways that would compromise their own king and result in putting themselves in check
+- The game is declared a stalemate (draw) if a player has no legal moves and is not in check
+
