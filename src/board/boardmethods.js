@@ -7,7 +7,7 @@ function checkChecker(king, allPiecesArr){
     allPiecesArr.forEach(piece => {
       if(arrayIncludes(piece.availableMoves,king.currentSpace)){
         bool = true;
-        console.log('This piece can threaten the king:',piece.color, piece.name)
+        console.log(`This piece can threaten the ${king.color} king:`,piece.color, piece.name)
         }
     });
     if(bool){console.log('YOU ARE IN CHECK')}

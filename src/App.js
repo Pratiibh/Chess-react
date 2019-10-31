@@ -12,10 +12,11 @@ function App() {
 
 
 function moveQueen() {
-  let newBoard = state.startingBoard && state.bque.move([1, 3], state.startingBoard, state.pieceArr);
+  let newBoard = state.startingBoard && state.wque.move([6, 3], state.startingBoard, state.pieceArr);
   setState({...state, currentBoard: newBoard});
   // this needs to be extended to cover both kings this is sort of a MVP version of checking for check
   checkChecker(boardItems.wkng,boardItems.pieceArr);
+  checkChecker(boardItems.bkng, boardItems.pieceArr);
 }
   return (
     <>
