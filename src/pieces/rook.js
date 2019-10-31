@@ -6,12 +6,12 @@ import whiteIcon from '../assets/chess-icons/wr.svg'
 
 
 export default class Rook extends Piece{
-    constructor(startingSpace, color, board){
+    constructor(startingSpace, color, board = skeletonBoard){
       super(startingSpace,color)
 
     }
     name = 'Rook'
     icon = this.color === 'white' ? whiteIcon : blackIcon;
-    position = this.startingSpace;
+    position = this.currentSpace;
 
 }

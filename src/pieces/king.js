@@ -11,6 +11,6 @@ export default class King extends Piece{
     }
     name = 'King'
     icon = this.color === 'white' ? whiteIcon : blackIcon;
-    position = this.startingSpace;
+    position = this.currentSpace;
 
 } 

@@ -1,6 +1,5 @@
-import React, {useState, useEffect}from 'react';
+import React, { useState } from 'react';
 // import './App.css';
-import GameBoard from './components/game-board.js'
 import DisplayBoard from './components/board/display-board.js'
 
 //this imports the board as well as all the objects (pieces) 
@@ -8,15 +7,17 @@ import DisplayBoard from './components/board/display-board.js'
 import * as boardItems from './board/startingBoard.js'
 
 function App() {
-  let [state, setState] = useState({});
-  useEffect(() => {
-    setState({...boardItems});
-  }, [])
-  // console.log(state)
+  let [state, setState] = useState({...boardItems});
+
+
+function moveQueen() {
+  let newBoard = state.startingBoard && state.startingBoard[7][4].move([1, 0], state.startingBoard);
+  setState({...state, currentBoard: newBoard})
+}
   return (
     <>
-    <DisplayBoard board={state} />
-    <GameBoard board={state}/>
+    <button onClick={()=> {moveQueen()}}>move queen</button>
+      <DisplayBoard board={state} />
     </>
   );
 }

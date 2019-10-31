@@ -13,7 +13,7 @@ export default class Pawn extends Piece {
   }
   name = 'Pawn'
   icon = this.color === 'white' ? whiteIcon : blackIcon;
-  position = this.startingSpace;
+  position = this.currentSpace;
 
   howItMoves = (currentSpace, color, board) => {
     let newAvailableMoves = [];

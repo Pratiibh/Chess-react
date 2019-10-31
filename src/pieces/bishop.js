@@ -11,6 +11,6 @@ export default class Bishop extends Piece{
     }
     name= 'Bishop' 
     icon = this.color === 'white' ? whiteIcon : blackIcon;
-    position = this.startingSpace;
+    position = this.currentSpace;
 
 } 
