@@ -32,9 +32,15 @@ export default function Spaces(props) {
       // </span>
 
        <span id={id} className={defaultClass} 
-       onMouseLeave={() => {returnToDefault(props.piece.availableMoves)}}
+       onMouseLeave={() => {
+         if(props.piece){
+        returnToDefault(props.piece.availableMoves)}
+         }
+      }
        onMouseOver={ () => { 
+         if(props.piece){
          showAvailableMoves(props.piece.availableMoves) }
+       }
   
        }>
 
