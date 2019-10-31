@@ -14,8 +14,6 @@ export default class Bishop extends Piece{
     position = this.currentSpace;
 
     howItMoves = (currentSpace, color, board) => {
-      // console.log('queen how it moves');
-      // console.log(currentSpace, color, board);
       let newAvailableMoves = [];
       //upleft
       this.slide([1,-1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));

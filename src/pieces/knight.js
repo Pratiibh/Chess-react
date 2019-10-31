@@ -15,8 +15,6 @@ export default class Knight extends Piece{
   position = this.startingSpace;
 
   howItMoves = (currentSpace, color, board) => {
-    // console.log('queen how it moves');
-    // console.log(currentSpace, color, board);
     let newAvailableMoves = [];
     let knightmoves = [[2,1],[-2,-1],[2,-1],[-2,1],[1,2],[1,-2],[-1,2],[-1,-2]];
     let arrAdd = function(current, delta){
