@@ -4,9 +4,10 @@ import Piece from './piece.js'
 import blackIcon from '../assets/chess-icons/bkn.svg'
 import whiteIcon from '../assets/chess-icons/wkn.svg'
 
-export default class Knight extends Piece {
-  constructor(startingSpace, color, board) {
-    super(startingSpace, color)
+export default class Knight extends Piece{
+    constructor(startingSpace, color, board = skeletonBoard){
+      super(startingSpace,color)
+
 
   }
   name = 'Knight'
@@ -24,6 +25,7 @@ export default class Knight extends Piece {
       [cy,cx,dy,dx] = [parseInt(cy),parseInt(cx),parseInt(dy),parseInt(dx)];
       return [cy + dy, cx + dx];
     }
+
     let possMoves = [];
     knightmoves.forEach(move => {
       possMoves.push(arrAdd(this.currentSpace,move))

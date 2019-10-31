@@ -4,7 +4,6 @@
 
 let wp = {color:'white'}
 let bp = {color:'black'}
-let ep = {color:''}
 
 let skeletonBoard =
   [

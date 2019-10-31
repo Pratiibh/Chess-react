@@ -9,7 +9,7 @@ body {
   margin-right:auto;
 }
 
-.square-base {
+.space-default {
   background: transparent;
   border: 1px solid transparent;
   float: left;
@@ -28,10 +28,39 @@ body {
   
 }
 
-.dark-square{
+.dark-space{
 background-color: RGB(125, 135, 150);
 }
 
-.light-square{
+.light-space{
     background-color: RGB(232, 235, 239);
 }
+
+@-webkit-keyframes flash {
+  0% { opacity: .3; }
+  100% { opacity: 1; }
+ }
+ @keyframes flash {
+  0% { opacity: .3; }
+  100% { opacity: 1; }
+ }
+
+ .flash {
+  opacity: 1;
+  -webkit-animation: flash 5s;
+  animation: flash 5s;
+ }
+
+ @-webkit-keyframes flash {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+ }
+ @keyframes flash {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+ }
+
+ .test {
+  background-color: RGB(0, 0, 0);
+
+ }

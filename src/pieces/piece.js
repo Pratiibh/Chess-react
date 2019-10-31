@@ -4,6 +4,7 @@ export default class Piece {
     this.startingSpace = startingSpace;
     this.color = color;
     this.availableMoves = [];
+    this.position = startingSpace;
   }
 
   isFriend(space, board) {
@@ -76,6 +77,7 @@ export default class Piece {
     board[oy][ox] = null
     board[y][x] = this
     this.currentSpace = [...space]
+    this.position = [...space]
     this.checkAvailableMoves(space, board)
     return board
   }

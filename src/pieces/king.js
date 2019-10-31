@@ -11,6 +11,7 @@ export default class King extends Piece{
     }
     name = 'King'
     icon = this.color === 'white' ? whiteIcon : blackIcon;
+
     position = this.startingSpace;
     howItMoves = (currentSpace, color, board) => {
       // console.log('queen how it moves');
