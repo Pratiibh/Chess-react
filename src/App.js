@@ -11,7 +11,7 @@ function App() {
 
 
 function moveQueen() {
-  let newBoard = state.startingBoard && state.startingBoard[7][4].move([1, 0], state.startingBoard);
+  let newBoard = state.startingBoard && state.startingBoard[7][4].move([1, 0], state.startingBoard, state.pieceArr);
   setState({...state, currentBoard: newBoard})
 }
   return (
