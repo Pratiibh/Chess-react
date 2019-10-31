@@ -54,10 +54,16 @@ let startingBoard =
 
 
 // export default null;
+const pieceArr = [wr00, wk00, wb00, wque, wkng, wb01, wk01, wr01,
+    wp00, wp01, wp02, wp03, wp04, wp05, wp06, wp07,
+    bp00, bp01, bp02, bp03, bp04, bp05, bp06, bp07,
+    br00, bk00, bb00, bque, bkng, bb01, bk01, br01]
+
 export {
     startingBoard,
     wr00, wk00, wb00, wque, wkng, wb01, wk01, wr01,
     wp00, wp01, wp02, wp03, wp04, wp05, wp06, wp07,
     bp00, bp01, bp02, bp03, bp04, bp05, bp06, bp07,
-    br00, bk00, bb00, bque, bkng, bb01, bk01, br01
+    br00, bk00, bb00, bque, bkng, bb01, bk01, br01,
+    pieceArr
 }

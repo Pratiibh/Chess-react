@@ -17,8 +17,6 @@ export default class Queen extends Piece{
   position = this.startingSpace;
 
   howItMoves = (currentSpace, color, board) => {
-    // console.log('queen how it moves');
-    // console.log(currentSpace, color, board);
     let newAvailableMoves = [];
     //left
     this.slide([0,-1], this.currentSpace, board).forEach(move => newAvailableMoves.push(move));

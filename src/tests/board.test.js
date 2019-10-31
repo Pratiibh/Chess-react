@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import skeletonBoard from '../board/skeletonBoard.js';
 import * as board from '../board/startingBoard.js'
 import Queen from '../pieces/queen.js'
-
 /*
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -87,7 +86,7 @@ describe('starting board Pawn tests', () => {
   it('can recompute moves correctly', () => {
     let tempBoard = [...board.startingBoard];
     let tempPawn = board.wp00;
-    tempPawn.move([5,0], tempBoard);
+    tempPawn.move([5,0], tempBoard,[...board.pieceArr]);
     expect(tempPawn.availableMoves).toContainEqual([6,1])
   })
 
@@ -101,7 +100,7 @@ describe('starting board Pawn tests', () => {
     let tempBoard = [... board.startingBoard];
     let tempQueen = board.bque;
     // console.log(tempBoard);
-    tempBoard = tempQueen.move([3,3], tempBoard);
+    tempBoard = tempQueen.move([3,3], tempBoard,[...board.pieceArr]);
     expect(tempQueen.availableMoves).toEqual(  [
       [ 3, 2 ], [ 3, 1 ],
       [ 3, 0 ], [ 3, 4 ],
@@ -120,7 +119,7 @@ describe('starting board Pawn tests', () => {
     let tempBoard = [... board.startingBoard];
     let tempRook = board.br00;
     // console.log(tempBoard);
-    tempBoard = tempRook.move([3,3], tempBoard);
+    tempBoard = tempRook.move([3,3], tempBoard,[...board.pieceArr]);
     expect(tempRook.availableMoves).toEqual(  [
       [ 3, 2 ], [ 3, 1 ],
       [ 3, 0 ], [ 3, 4 ],
@@ -135,7 +134,7 @@ describe('starting board Pawn tests', () => {
     let tempBoard = [... board.startingBoard];
     let tempBishop = board.bb00;
     // console.log(tempBoard);
-    tempBoard = tempBishop.move([3,3], tempBoard);
+    tempBoard = tempBishop.move([3,3], tempBoard,[...board.pieceArr]);
     expect(tempBishop.availableMoves).toEqual(  [
       [ 4, 2 ], [ 5, 1 ],
       [ 4, 4 ], [ 5, 5 ], 
@@ -148,7 +147,7 @@ describe('starting board Pawn tests', () => {
     let tempBoard = [... board.startingBoard];
     let tempKnight = board.bk00;
     // console.log(tempBoard);
-    tempBoard = tempKnight.move([3,3], tempBoard);
+    tempBoard = tempKnight.move([3,3], tempBoard, [...board.pieceArr]);
     expect(tempKnight.availableMoves).toEqual(  [
       [5, 4], [1, 2],
       [5, 2], [1, 4],
@@ -161,7 +160,7 @@ describe('starting board Pawn tests', () => {
     let tempBoard = [... board.startingBoard];
     let tempKing = board.bkng;
     // console.log(tempBoard);
-    tempBoard = tempKing.move([3,3], tempBoard);
+    tempBoard = tempKing.move([3,3], tempBoard,[...board.pieceArr]);
     // console.log(tempKing.availableMoves);
     expect(tempKing.availableMoves).toEqual(  [
       [4, 2], [4, 3],

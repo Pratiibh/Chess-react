@@ -61,6 +61,18 @@ export default class Piece {
     else { return false }
   }
 
+  canMonitor(space, board) {
+    let [s, b] = [space, board];
+    if (
+      (this.isOnBoard(space)) 
+      && 
+      (this.isEmpty(s, b) || this.isFoe(s, b))
+      ) {
+      return true
+    }
+    else { return false }
+  }
+
   checkAvailableMoves = (updatedSpace, board) => {
     const newAvailableMoves = this.howItMoves(updatedSpace, this.color, board);
     const newMonitor = this.howItMonitors(updatedSpace, this.color, board);
@@ -69,7 +81,7 @@ export default class Piece {
     this.monitoredSpaces = newMonitor;
   }
 
-  move(space, board) {
+  move(space, board, allPiecesArr) {
     // console.log(space,board)
     let [y, x] = [space[0], space[1]]
     let [oy, ox] = [...this.currentSpace]
@@ -77,6 +89,9 @@ export default class Piece {
     board[y][x] = this
     this.currentSpace = [...space]
     this.checkAvailableMoves(space, board)
+    allPiecesArr.forEach(piece => {
+      piece.checkAvailableMoves(space,board)
+    })
     return board
   }
 
@@ -99,13 +114,3 @@ export default class Piece {
   }
 
 }
-
-/*
-    let tempBoard = [...board.startingBoard]
-    let tempPawn = board.wp00
-    tempBoard[5][0] = tempPawn;
-    tempBoard[1][0] = null;
-    tempPawn.currentSpace = [5,0];
-    tempPawn.checkAvailableMoves(tempPawn.currentSpace, tempBoard);
-    expect(tempPawn.availableMoves).toContainEqual([6,1])
-*/
