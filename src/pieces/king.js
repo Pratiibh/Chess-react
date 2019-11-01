@@ -26,7 +26,7 @@ export default class King extends Piece{
       kingMoves.forEach(move => {
         possMoves.push(arrAdd(this.currentSpace,move))
       })
-      possMoves.filter(move => this.canMove(move,board))
+      possMoves = possMoves.filter(move => this.canMove(move,board))
       newAvailableMoves = [...possMoves]
       return newAvailableMoves
     }

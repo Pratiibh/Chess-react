@@ -7,8 +7,7 @@ import whiteIcon from '../assets/chess-icons/wkn.svg'
 export default class Knight extends Piece{
     constructor(startingSpace, color, board = skeletonBoard){
       super(startingSpace,color)
-
-
+      this.availableMoves = this.howItMoves(this.currentSpace,this.color,board) // [move spaces]
   }
   name = 'Knight'
   icon = this.color === 'white' ? whiteIcon : blackIcon;
@@ -28,7 +27,7 @@ export default class Knight extends Piece{
     knightmoves.forEach(move => {
       possMoves.push(arrAdd(this.currentSpace,move))
     })
-    possMoves.filter(move => this.canMove(move,board))
+    possMoves = possMoves.filter(move => this.canMove(move,board))
     newAvailableMoves = [...possMoves]
     return newAvailableMoves
   }
