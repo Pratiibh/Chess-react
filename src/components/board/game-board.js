@@ -1,8 +1,8 @@
-import React from "react";
-import "./board.css";
-import Spaces from "./game-spaces.js";
+import React from 'react';
+import './board.css';
+import Spaces from './game-spaces.js';
 
-const API = "http://localhost:3000/api/v1/board";
+const API = 'http://localhost:3000/api/v1/board';
 
 export default class Board extends React.Component {
   componentDidMount() {
@@ -11,9 +11,9 @@ export default class Board extends React.Component {
     console.log(json);
     console.log(board);
     fetch(API, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       },
       body: json
     })

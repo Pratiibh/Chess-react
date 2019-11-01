@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 // import './App.css';
-import GameBoard from "./components/board/game-board.js";
-import DisplayBoard from "./components/board/display-board.js";
-import { checkChecker } from "./board/boardmethods.js";
+import GameBoard from './components/board/game-board.js';
+import DisplayBoard from './components/board/display-board.js';
+import { checkChecker } from './board/boardmethods.js';
 
 //this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
-import * as boardItems from "./board/startingBoard.js";
+import * as boardItems from './board/startingBoard.js';
 
 function App() {
   let [state, setState] = useState({ ...boardItems });
