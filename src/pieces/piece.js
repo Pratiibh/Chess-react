@@ -90,9 +90,9 @@ export default class Piece {
     this.currentSpace = [...space]
     this.position = [...space]
     this.checkAvailableMoves(space, board)
-    allPiecesArr.forEach(piece => {
-      piece.checkAvailableMoves(space,board)
-    })
+      // allPiecesArr.forEach(piece => {
+    //   piece.checkAvailableMoves(space,board)
+    // })
     return board
   }
 
