@@ -9,7 +9,16 @@ body {
   margin-right:auto;
 }
 
-.space-default {
+.board-container{
+  position: absolute;
+  left: 50%;
+}
+
+.game-pieces {
+  position: relative;
+  left: -50%;
+
+  z-index: 1;
   background: transparent;
   border: 1px solid transparent;
   float: left;
@@ -19,13 +28,30 @@ body {
   height: 48px;
   margin-right: -1px;
   margin-top: -1px;
-  padding: 0;
+  text-align: center;
+  width: 48px; 
+  border: solid;
+  border-color: transparent;
+}
+
+.game-spaces {
+  position: relative;
+  left: -50%;
+  z-index: -1;
+  background: transparent;
+  border: 1px solid transparent;
+  float: left;
+  font-size: 8px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 48px;
+  margin-right: -1px;
+  margin-top: -1px;
   text-align: center;
   width: 48px;
   color: white;
   border: solid;
   border-color: lightgray
-  
 }
 
 .dark-space{
