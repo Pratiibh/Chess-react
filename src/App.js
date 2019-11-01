@@ -10,7 +10,7 @@ import * as boardItems from './board/startingBoard.js'
 
 function App() {
   let [state, setState] = useState({ ...boardItems });
-
+  console.log(boardItems.wk00)
 
   function moveQueen() {
     let newBoard = state.startingBoard && state.wque.move([6, 3], state.startingBoard, state.pieceArr);
