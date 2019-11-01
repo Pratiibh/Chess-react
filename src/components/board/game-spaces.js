@@ -36,9 +36,17 @@ export default function Spaces(props) {
     <Draggable>
         <span id={id} className={defaultClass}
           //  onClick={() => { props.piece.move([2, 1], props.board, props.pieceArr ) }}
-          onMouseLeave={() => { returnToDefault(props.piece.availableMoves) }}
-          onMouseOver={() => { showAvailableMoves(props.piece.availableMoves) }}>
-
+          onMouseLeave={() => {
+            if(props.piece){
+           returnToDefault(props.piece.availableMoves)}
+            }
+         }
+          onMouseOver={ () => { 
+            if(props.piece){
+            showAvailableMoves(props.piece.availableMoves) }
+          }
+   
+          }>
           <img src={props.piece && props.piece.icon} width='30' />
         </span>
     </Draggable>
