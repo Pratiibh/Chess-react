@@ -1,6 +1,6 @@
-import React from "react";
-import "./board.css";
-import Spaces from "./game-spaces.js";
+import React from 'react';
+import './board.css';
+import Spaces from './game-spaces.js';
 
 export default class Board extends React.Component {
   renderSpace(i, j) {

@@ -1,8 +1,8 @@
-import React from "react";
-import Draggable from "react-draggable";
+import React from 'react';
+import Draggable from 'react-draggable';
 
 export default function Spaces(props) {
-  let defaultClass = "game-pieces " + props.shade;
+  let defaultClass = 'game-pieces ' + props.shade;
   let id = `y${props.ycoord}x${props.xcoord}`;
   let targetId;
 
@@ -11,7 +11,7 @@ export default function Spaces(props) {
       // let newClass = "space-default " + props.shade + " test"
       targetId = `y${move[0]}x${move[1]}`;
       let myId = document.getElementById(targetId);
-      myId.classList.add("flash");
+      myId.classList.add('flash');
     });
   };
 
@@ -19,7 +19,7 @@ export default function Spaces(props) {
     spaces.forEach((space, idx) => {
       targetId = `y${space[0]}x${space[1]}`;
       let myId = document.getElementById(targetId);
-      myId.classList.remove("flash");
+      myId.classList.remove('flash');
     });
   };
 

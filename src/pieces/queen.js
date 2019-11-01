@@ -1,8 +1,8 @@
 // 'use strict'
-import skeletonBoard from "../board/skeletonBoard.js";
-import Piece from "./piece.js";
-import blackIcon from "../assets/chess-icons/bq.svg";
-import whiteIcon from "../assets/chess-icons/wq.svg";
+import skeletonBoard from '../board/skeletonBoard.js';
+import Piece from './piece.js';
+import blackIcon from '../assets/chess-icons/bq.svg';
+import whiteIcon from '../assets/chess-icons/wq.svg';
 
 export default class Queen extends Piece {
   constructor(startingSpace, color, board = skeletonBoard) {
@@ -10,8 +10,8 @@ export default class Queen extends Piece {
     this.availableMoves = this.howItMoves(this.currentSpace, this.color, board); // [move spaces]
     // this.monitoredSpaces = this.howItMonitors(board) // [monitored spaces]
   }
-  name = "Queen";
-  icon = this.color === "white" ? whiteIcon : blackIcon;
+  name = 'Queen';
+  icon = this.color === 'white' ? whiteIcon : blackIcon;
   position = this.currentSpace;
 
   howItMoves = (currentSpace, color, board) => {

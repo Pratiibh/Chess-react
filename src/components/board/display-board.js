@@ -1,6 +1,6 @@
-import React from "react";
-import "./board.css";
-import DisplaySpaces from "./display-spaces.js";
+import React from 'react';
+import './board.css';
+import DisplaySpaces from './display-spaces.js';
 
 export default class DisplayBoard extends React.Component {
   renderSquare(i, j, color) {
@@ -17,12 +17,12 @@ export default class DisplayBoard extends React.Component {
           (isLightSpace(i) && isLightSpace(j)) ||
           (!isLightSpace(i) && !isLightSpace(j))
         ) {
-          color = "light-space";
+          color = 'light-space';
         }
         //if position is comprised of both even numbers or odd numbers
         //assign class name 'light-space' other wise assign 'dark-space'
         else {
-          color = "dark-space";
+          color = 'dark-space';
         }
         rows.push(this.renderSquare(i, j, color));
       }

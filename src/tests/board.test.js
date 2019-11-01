@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import skeletonBoard from "../board/skeletonBoard.js";
-import * as board from "../board/startingBoard.js";
-import Queen from "../pieces/queen.js";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import skeletonBoard from '../board/skeletonBoard.js';
+import * as board from '../board/startingBoard.js';
+import Queen from '../pieces/queen.js';
 /*
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -11,13 +11,13 @@ it('renders without crashing', () => {
 });
 */
 
-describe("skeleton board tests", () => {
-  it("Has the correct size arrays for the skeleton board", () => {
-    expect(skeletonBoard[0][0].color).toBe("white");
+describe('skeleton board tests', () => {
+  it('Has the correct size arrays for the skeleton board', () => {
+    expect(skeletonBoard[0][0].color).toBe('white');
   });
 });
 
-describe("starting board Pawn tests", () => {
+describe('starting board Pawn tests', () => {
   let arrOfPawns = [
     board.wp00,
     board.wp01,
@@ -38,13 +38,13 @@ describe("starting board Pawn tests", () => {
   ];
 
   for (let i = 0; i < 8; i++) {
-    it("Starts with all the pawns", () => {
-      expect(board.startingBoard[1][i].name).toBe("Pawn");
+    it('Starts with all the pawns', () => {
+      expect(board.startingBoard[1][i].name).toBe('Pawn');
     });
   }
 
   for (let i = 0; i < 8; i++) {
-    it("No white pawn can move too far", () => {
+    it('No white pawn can move too far', () => {
       expect(
         board.startingBoard[1][i].availableMoves.includes([4, i])
       ).toBeFalsy();
@@ -52,7 +52,7 @@ describe("starting board Pawn tests", () => {
   }
 
   for (let i = 0; i < 8; i++) {
-    it("No Black pawn can move too far", () => {
+    it('No Black pawn can move too far', () => {
       expect(
         board.startingBoard[6][i].availableMoves.includes([5, i])
       ).toBeFalsy();
@@ -66,7 +66,7 @@ describe("starting board Pawn tests", () => {
   }
   arrOfPawns.forEach(pawn => {
     middleRows.forEach(space => {
-      it("Cannot move to middle row (same as last test but from pawn point of view instead of board point of view", () => {
+      it('Cannot move to middle row (same as last test but from pawn point of view instead of board point of view', () => {
         expect(pawn.availableMoves.includes(space)).toBeFalsy();
       });
     });
@@ -79,15 +79,15 @@ describe("starting board Pawn tests", () => {
   }
   arrOfPawns.forEach(pawn => {
     endRows.forEach(space => {
-      it("Cannot move to back rows", () => {
+      it('Cannot move to back rows', () => {
         expect(pawn.availableMoves).not.toContainEqual(space);
       });
     });
   });
 
   arrOfPawns.forEach(pawn => {
-    it("Pawns CAN move to the space in front of them", () => {
-      if (pawn.color === "white") {
+    it('Pawns CAN move to the space in front of them', () => {
+      if (pawn.color === 'white') {
         expect(pawn.availableMoves).toContainEqual([
           pawn.currentSpace[0] + 1,
           pawn.currentSpace[1]
@@ -97,7 +97,7 @@ describe("starting board Pawn tests", () => {
             pawn.currentSpace[1]
           ]);
       }
-      if (pawn.color === "black") {
+      if (pawn.color === 'black') {
         expect(pawn.availableMoves).toContainEqual([
           pawn.currentSpace[0] - 1,
           pawn.currentSpace[1]
@@ -110,7 +110,7 @@ describe("starting board Pawn tests", () => {
     });
   });
 
-  it("can recompute moves correctly", () => {
+  it('can recompute moves correctly', () => {
     let tempBoard = [...board.startingBoard];
     let tempPawn = board.wp00;
     tempPawn.move([5, 0], tempBoard, [...board.pieceArr]);
@@ -123,7 +123,7 @@ describe("starting board Pawn tests", () => {
     expect(tempPawn.isFoe([2, 0], tempBoard)).toBeFalsy();
   });
 
-  it("Queen updates available moves", () => {
+  it('Queen updates available moves', () => {
     let tempBoard = [...board.startingBoard];
     let tempQueen = board.bque;
     // console.log(tempBoard);
@@ -151,7 +151,7 @@ describe("starting board Pawn tests", () => {
     ]);
   });
 
-  it("Rook updates available moves", () => {
+  it('Rook updates available moves', () => {
     let tempBoard = [...board.startingBoard];
     let tempRook = board.br00;
     // console.log(tempBoard);
@@ -171,7 +171,7 @@ describe("starting board Pawn tests", () => {
     ]);
   });
 
-  it("Bishop updates available moves", () => {
+  it('Bishop updates available moves', () => {
     let tempBoard = [...board.startingBoard];
     let tempBishop = board.bb00;
     // console.log(tempBoard);
@@ -188,7 +188,7 @@ describe("starting board Pawn tests", () => {
     ]);
   });
 
-  it("Knight updates available moves", () => {
+  it('Knight updates available moves', () => {
     let tempBoard = [...board.startingBoard];
     let tempKnight = board.bk00;
     // console.log(tempBoard);
@@ -205,7 +205,7 @@ describe("starting board Pawn tests", () => {
     ]);
   });
 
-  it("King updates available moves", () => {
+  it('King updates available moves', () => {
     let tempBoard = [...board.startingBoard];
     let tempKing = board.bkng;
     // console.log(tempBoard);

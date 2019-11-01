@@ -1,16 +1,16 @@
 // 'use strict'
-import skeletonBoard from "../board/skeletonBoard.js";
-import Piece from "./piece.js";
-import blackIcon from "../assets/chess-icons/bkn.svg";
-import whiteIcon from "../assets/chess-icons/wkn.svg";
+import skeletonBoard from '../board/skeletonBoard.js';
+import Piece from './piece.js';
+import blackIcon from '../assets/chess-icons/bkn.svg';
+import whiteIcon from '../assets/chess-icons/wkn.svg';
 
 export default class Knight extends Piece {
   constructor(startingSpace, color, board = skeletonBoard) {
     super(startingSpace, color);
     this.availableMoves = this.howItMoves(this.currentSpace, this.color, board); // [move spaces]
   }
-  name = "Knight";
-  icon = this.color === "white" ? whiteIcon : blackIcon;
+  name = 'Knight';
+  icon = this.color === 'white' ? whiteIcon : blackIcon;
   position = this.startingSpace;
 
   howItMoves = (currentSpace, color, board) => {

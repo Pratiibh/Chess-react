@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export { checkChecker };
 
@@ -15,7 +15,7 @@ function checkChecker(king, allPiecesArr) {
     }
   });
   if (bool) {
-    console.log("YOU ARE IN CHECK");
+    console.log('YOU ARE IN CHECK');
   }
   return bool;
 }
