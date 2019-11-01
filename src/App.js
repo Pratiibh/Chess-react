@@ -11,6 +11,7 @@ import * as boardItems from './board/startingBoard.js'
 function App() {
   let [state, setState] = useState({ ...boardItems });
 
+
   function moveQueen() {
     let newBoard = state.startingBoard && state.wque.move([6, 3], state.startingBoard, state.pieceArr);
     setState({ ...state, currentBoard: newBoard });
@@ -21,8 +22,12 @@ function App() {
   return (
     <>
       <button onClick={() => { moveQueen() }}>move queen</button>
+      <button onClick={() => {console.log(state) }}>state</button>
+
       <DisplayBoard board={state} />
+      <div >
       <GameBoard board={state} />
+      </div>
     </>
   );
 }
