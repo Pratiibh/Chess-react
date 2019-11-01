@@ -1,20 +1,51 @@
+let wp = { color: "white" };
+let bp = { color: "black" };
 
-
-
-
-let wp = {color:'white'}
-let bp = {color:'black'}
-
-let skeletonBoard =
+let skeletonBoard = [
   [
-    [{...wp}, {...wp}, {...wp}, {...wp}, {...wp}, {...wp}, {...wp}, {...wp}],
-    [{...wp}, {...wp}, {...wp}, {...wp}, {...wp}, {...wp}, {...wp}, {...wp}],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null],
-    [{...bp}, {...bp}, {...bp}, {...bp}, {...bp}, {...bp}, {...bp}, {...bp}],
-    [{...bp}, {...bp}, {...bp}, {...bp}, {...bp}, {...bp}, {...bp}, {...bp}],
-  ];
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp }
+  ],
+  [
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp },
+    { ...wp }
+  ],
+  [null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null],
+  [
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp }
+  ],
+  [
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp },
+    { ...bp }
+  ]
+];
 
-  export default skeletonBoard
+export default skeletonBoard;
