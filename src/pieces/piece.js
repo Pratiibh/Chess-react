@@ -1,4 +1,6 @@
 import * as boardMethods from '../board/boardmethods.js';
+import { arrayIncludes } from '../board/boardmethods.js';
+
 export default class Piece {
   constructor(startingSpace, color) {
     this.currentSpace = startingSpace;
@@ -143,6 +145,13 @@ export default class Piece {
         this[key] = storedThis[key];
       });
       return false;
+    }
+  }
+  legalMove(space, board, allPiecesArr) {
+    if (arrayIncludes(this.availableMoves, space)) {
+      return this.move(space, board, allPiecesArr);
+    } else {
+      return 'Illegal Move';
     }
   }
 }
