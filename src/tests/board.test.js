@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import skeletonBoard from '../board/skeletonBoard.js';
 import * as board from '../board/startingBoard.js';
 import Queen from '../pieces/queen.js';
+import { arrayIncludes } from '../board/boardmethods.js';
+
 /*
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -221,5 +223,27 @@ describe('starting board Pawn tests', () => {
       [2, 3],
       [2, 4]
     ]);
+  });
+
+  it('Rook will function upon a LEGAL move', () => {
+    let tempBoard = [...board.startingBoard];
+    let tempRook = board.br00;
+    tempRook.move([3, 3], tempBoard, [...board.pieceArr]);
+    let newBoard = tempRook.legalMove([3, 4], tempBoard, [...board.pieceArr]);
+    expect(newBoard[3][4].currentSpace).toEqual([3, 4]);
+  });
+
+  it('Rook will not function upon an ILLEGAL move', () => {
+    let tempBoard = [...board.startingBoard];
+    let tempRook = board.br00;
+    tempRook.move([3, 3], tempBoard, [...board.pieceArr]);
+    let newBoard = tempRook.legalMove([4, 4], tempBoard, [...board.pieceArr]);
+    expect(newBoard).toEqual('Illegal Move');
+  });
+
+  it('arrayIncludes is completely functional', () => {
+    let arrayOne = [[3, 0]];
+    let arrayTwo = [3, 0];
+    expect(arrayIncludes(arrayOne, arrayTwo)).toEqual(true);
   });
 });

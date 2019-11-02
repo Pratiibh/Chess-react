@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
 import { checkChecker } from './board/boardmethods.js';
+import Updater from './api/board-updater.js';
 
 //this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
@@ -12,6 +13,8 @@ function App() {
   let positionTracker = { start: null, end: null}
   let [state, setState] = useState({ ...boardItems });
   let [activePiece, setActivePiece] = useState(positionTracker);
+  let [moveList, setMoveList] = useState([]);
+
   // 2 new state vars, start and end
   // start = id on mouse over
   //end = id on mouse release
@@ -51,15 +54,25 @@ function App() {
     // setActivePiece(positionTracker);
     // }
   }
-
+  
   function moveQueen() {
     let newBoard =
       state.startingBoard &&
-      state.startingBoard[1][0].move([6, 3], state.startingBoard, state.pieceArr);
+      state.startingBoard[1][3].move(
+        [6, 4],
+        state.startingBoard,
+        state.pieceArr
+      );
+    state.startingBoard[1][2].move([6, 3], state.startingBoard, state.pieceArr);
     setState({ ...state, currentBoard: newBoard });
     // this needs to be extended to cover both kings this is sort of a MVP version of checking for check
     checkChecker(boardItems.wkng, boardItems.pieceArr);
     checkChecker(boardItems.bkng, boardItems.pieceArr);
+  }
+
+  function resetBoard() {
+    let resettedBoard = state.resetBoard();
+    setState({ ...state, startingBoard: resettedBoard });
   }
   return (
     <>
@@ -70,6 +83,7 @@ function App() {
       >
         move queen
       </button>
+      <button onClick={() => resetBoard()}> Reset board</button>
       <DisplayBoard board={state} />
 
       <div onClick={(e) => { 
@@ -87,6 +101,7 @@ function App() {
         
       <GameBoard board={state} />
       </div>
+      <Updater board={state} />
     </>
   );
 }
