@@ -5,21 +5,6 @@ import Spaces from './game-spaces.js';
 const API = 'http://localhost:3000/api/v1/board';
 
 export default class Board extends React.Component {
-  componentDidMount() {
-    let board = this.props.board.startingBoard;
-    let json = JSON.stringify(board);
-    fetch(API, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: json
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(console.error);
-  }
-
   renderSpace(i, j) {
     let boardItems = this.props.board.startingBoard;
     return (
