@@ -4,13 +4,13 @@ import Draggable from 'react-draggable';
 
 export default function Spaces(props) {
   let defaultClass = "game-pieces " + props.shade;
-  let id = `y${props.ycoord}x${props.xcoord}`;
+  let id = `${props.ycoord}${props.xcoord}`;
   let targetId;
 
   const showAvailableMoves = (moves) => {
     moves.forEach((move, idx) => {
       // let newClass = "space-default " + props.shade + " test"
-      targetId = `y${move[0]}x${move[1]}`
+      targetId = `${move[0]}${move[1]}`
       let myId = document.getElementById(targetId);
       myId.classList.add("flash")
     })
@@ -18,7 +18,7 @@ export default function Spaces(props) {
 
   const returnToDefault = (spaces) => {
     spaces.forEach((space, idx) => {
-      targetId = `y${space[0]}x${space[1]}`
+      targetId = `${space[0]}${space[1]}`
       let myId = document.getElementById(targetId);
       myId.classList.remove("flash");
     })
@@ -34,7 +34,7 @@ export default function Spaces(props) {
     //   <img src={props.piece && props.piece.icon} width='30'/>
     // </span>
     <Draggable>
-        <span id={id} className={defaultClass}
+        <span id={id} className={defaultClass} 
           //  onClick={() => { props.piece.move([2, 1], props.board, props.pieceArr ) }}
           onMouseLeave={() => {
             if(props.piece){
@@ -47,7 +47,7 @@ export default function Spaces(props) {
           }
    
           }>
-          <img src={props.piece && props.piece.icon} width='30' />
+          <img id={id} src={props.piece && props.piece.icon} width='30' />
         </span>
     </Draggable>
 

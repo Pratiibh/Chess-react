@@ -10,7 +10,9 @@ import * as boardItems from './board/startingBoard.js'
 
 function App() {
   let [state, setState] = useState({ ...boardItems });
-
+  // 2 new state vars, start and end
+  // start = id on mouse over
+  //end = id on mouse release
 
   function moveQueen() {
     let newBoard = state.startingBoard && state.wp01.move([6, 3], state.startingBoard, state.pieceArr);
@@ -22,10 +24,14 @@ function App() {
   return (
     <>
       <button onClick={() => { moveQueen() }}>move queen</button>
-      <button onClick={() => {console.log(state) }}>state</button>
 
       <DisplayBoard board={state} />
-      <div >
+      <div onClick={(e) => { let startPosition = e.target.id.split('');
+        console.log(startPosition);}}
+
+        onMouseUp={(e) => {let endPosition = e.target.id.split('')
+        console.log(endPosition)
+      }} >
       <GameBoard board={state} />
       </div>
     </>
