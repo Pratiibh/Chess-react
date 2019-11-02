@@ -14,11 +14,12 @@ body {
   left: 50%;
 }
 
+
+
 .game-pieces {
   position: relative;
   left: -50%;
 
-  z-index: 1;
   background: transparent;
   border: 1px solid transparent;
   float: left;
@@ -34,10 +35,9 @@ body {
   border-color: transparent;
 }
 
-.game-spaces {
+.display-spaces {
   position: relative;
   left: -50%;
-  z-index: -1;
   background: transparent;
   border: 1px solid transparent;
   float: left;
@@ -87,7 +87,26 @@ background-color: RGB(125, 135, 150);
   25%, 75% { opacity: 0; }
  }
 
- .test {
-  background-color: RGB(0, 0, 0);
+ .react-draggable, .cursor {
+  cursor: move;
+}
+.no-cursor {
+  cursor: auto;
+}
+.cursor-y {
+  cursor: ns-resize;
+}
+.cursor-x {
+  cursor: ew-resize;
+}
+.react-draggable strong {
+  background: #ddd;
+  border: 1px solid #999;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 10px;
+  padding: 3px 5px;
+  text-align: center;
+}
 
- }
+

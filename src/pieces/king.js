@@ -1,8 +1,8 @@
 // 'use strict'
 import skeletonBoard from '../board/skeletonBoard.js';
 import Piece from './piece.js';
-import blackIcon from '../assets/chess-icons/bk.svg';
-import whiteIcon from '../assets/chess-icons/wk.svg';
+import blackIcon from '../assets/chess-icons/bk.png';
+import whiteIcon from '../assets/chess-icons/wk.png';
 
 export default class King extends Piece {
   constructor(startingSpace, color, board = skeletonBoard) {
