@@ -8,8 +8,6 @@ export default class Board extends React.Component {
   componentDidMount() {
     let board = this.props.board.startingBoard;
     let json = JSON.stringify(board);
-    console.log(json);
-    console.log(board);
     fetch(API, {
       method: 'POST',
       headers: {
