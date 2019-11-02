@@ -11,15 +11,26 @@ import * as boardItems from './board/startingBoard.js';
 
 function App() {
   let [state, setState] = useState({ ...boardItems });
-
+  let [moveList, setMoveList] = useState([]);
+  
   function moveQueen() {
     let newBoard =
       state.startingBoard &&
-      state.wp01.move([6, 3], state.startingBoard, state.pieceArr);
+      state.startingBoard[1][3].move(
+        [6, 4],
+        state.startingBoard,
+        state.pieceArr
+      );
+    state.startingBoard[1][2].move([6, 3], state.startingBoard, state.pieceArr);
     setState({ ...state, currentBoard: newBoard });
     // this needs to be extended to cover both kings this is sort of a MVP version of checking for check
     checkChecker(boardItems.wkng, boardItems.pieceArr);
     checkChecker(boardItems.bkng, boardItems.pieceArr);
+  }
+
+  function resetBoard() {
+    let resettedBoard = state.resetBoard();
+    setState({ ...state, startingBoard: resettedBoard });
   }
   return (
     <>
@@ -30,6 +41,7 @@ function App() {
       >
         move queen
       </button>
+      <button onClick={() => resetBoard()}> Reset board</button>
       <DisplayBoard board={state} />
       <GameBoard board={state} />
       <Updater board={state} />
