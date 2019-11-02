@@ -30,6 +30,7 @@ function App() {
     setActivePiece(positionTracker);
     }
   },[activePiece])
+  
   function handleClick(pos) {
     if(activePiece.start === null) {
       setActivePiece({...activePiece, start: pos });
