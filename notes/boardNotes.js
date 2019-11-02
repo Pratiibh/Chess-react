@@ -13,3 +13,4 @@
 ];
 
 //AJ don't forget to fix shrinking
+//if 2nd click isn't valid, clear state

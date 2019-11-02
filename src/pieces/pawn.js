@@ -2,8 +2,8 @@
 
 import skeletonBoard from '../board/skeletonBoard.js';
 import Piece from './piece.js';
-import blackIcon from '../assets/chess-icons/bp.svg';
-import whiteIcon from '../assets/chess-icons/wp.svg';
+import blackIcon from '../assets/chess-icons/bp.png';
+import whiteIcon from '../assets/chess-icons/wp.png';
 
 export default class Pawn extends Piece {
   constructor(startingSpace, color, board = skeletonBoard) {

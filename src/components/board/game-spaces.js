@@ -1,5 +1,4 @@
 import React from 'react';
-import Draggable from 'react-draggable';
 
 export default function Spaces(props) {
   let defaultClass = "game-pieces " + props.shade;
@@ -24,32 +23,22 @@ export default function Spaces(props) {
   };
 
   return (
-    // <span onClick={
-    // () => { props.piece && props.piece.position
-    //   ? alert(`you selected ${props.piece.name} at position ${props.piece.position}`)
-    //   : alert(`invalid selection`)}
-    // }
-    // className={"space-default " + props.shade + " flash"}>
-    //   <img src={props.piece && props.piece.icon} width='30'/>
-    // </span>
-    <Draggable>
-      <span
-        id={id}
-        className={defaultClass}
-        //  onClick={() => { props.piece.move([2, 1], props.board, props.pieceArr ) }}
-        onMouseLeave={() => {
-          if (props.piece) {
-            returnToDefault(props.piece.availableMoves);
-          }
-        }}
-        onMouseOver={() => {
-          if (props.piece) {
-            showAvailableMoves(props.piece.availableMoves);
-          }
-        }}
-      >
-        <img src={props.piece && props.piece.icon} width="30" />
-      </span>
-    </Draggable>
+    <span
+      id={id}
+      className={defaultClass}
+      onMouseLeave={() => {
+        if (props.piece) {
+          returnToDefault(props.piece.availableMoves);
+        }
+      }}
+      onClick={() => {
+        if (props.piece) {
+          showAvailableMoves(props.piece.availableMoves);
+        }
+      }}
+    >
+   <img id={id} className="icon" src={props.piece && props.piece.icon} width="30" />
+
+    </span>
   );
 }
