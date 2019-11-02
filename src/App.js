@@ -24,7 +24,7 @@ function App() {
       
       let newBoard =
       state.startingBoard &&
-      state.startingBoard[activePiece.start[0]][activePiece.start[1]].move(activePiece.end, state.startingBoard, state.pieceArr);
+      state.startingBoard[activePiece.start[0]][activePiece.start[1]].legalMove(activePiece.end, state.startingBoard, state.pieceArr);
     setState({ ...state, currentBoard: newBoard });
     // this needs to be extended to cover both kings this is sort of a MVP version of checking for check
     checkChecker(boardItems.wkng, boardItems.pieceArr);
@@ -33,6 +33,7 @@ function App() {
     setActivePiece(positionTracker);
     }
   },[activePiece])
+  
   function handleClick(pos) {
     if(activePiece.start === null) {
       setActivePiece({...activePiece, start: pos });
@@ -75,13 +76,6 @@ function App() {
   }
   return (
     <>
-      <button
-        onClick={() => {
-          moveQueen();
-        }}
-      >
-        move queen
-      </button>
       <button onClick={() => resetBoard()}> Reset board</button>
       <DisplayBoard board={state} />
 
@@ -91,7 +85,6 @@ function App() {
           return parseInt(int);
         })
       handleClick(parsed);
-      console.log(parsed)
       }}
 
         onMouseUp={(e) => {let endPosition = e.target.id.split('')
