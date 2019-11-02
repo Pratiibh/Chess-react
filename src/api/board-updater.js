@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import * as boardItems from '../board/startingBoard.js';
 
-const API = 'http://localhost:3000/api/v1/board';
+const API = 'http://localhost:3000/api/v1/chess';
 
 function Updater() {
   let [state] = useState({ ...boardItems });
