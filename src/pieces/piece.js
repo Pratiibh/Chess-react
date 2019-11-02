@@ -1,3 +1,6 @@
+import * as boardMethods from '../board/boardmethods.js';
+import { arrayIncludes } from '../board/boardmethods.js';
+
 export default class Piece {
   constructor(startingSpace, color) {
     this.currentSpace = startingSpace;
@@ -76,19 +79,20 @@ export default class Piece {
   };
 
   move(space, board, allPiecesArr) {
+    let tempBoard = [...board];
     let [y, x] = [space[0], space[1]];
     let [oy, ox] = [...this.currentSpace];
-    board[oy][ox] = null;
-    board[y][x] = this;
+    tempBoard[oy][ox] = null;
+    tempBoard[y][x] = this;
     this.currentSpace = [...space];
     this.position = [...space];
-    this.checkAvailableMoves(space, board);
+    this.checkAvailableMoves(space, tempBoard);
     allPiecesArr.forEach(piece => {
       // this is a weird case where we need to pass the pieces current space
       // instead of the space that is being passed into the containing function
-      piece.checkAvailableMoves(piece.currentSpace, board);
+      piece.checkAvailableMoves(piece.currentSpace, tempBoard);
     });
-    return board;
+    return tempBoard;
   }
 
   slide(direction, currentSpace, board) {
@@ -106,5 +110,48 @@ export default class Piece {
       current = [cy + parseInt(dy), cx + parseInt(dx)];
     }
     return newAvailableMoves;
+  }
+
+  moveIntoCheck(space, board, allPiecesArr) {
+    let sameKing = null;
+    let storedBoard = [...board];
+    let storedPieces = [...allPiecesArr];
+    let storedThis = { ...this };
+    for (let i = 0; i < storedPieces.length; i++) {
+      if (
+        storedPieces[i].color === this.color &&
+        storedPieces[i].name === 'King'
+      ) {
+        sameKing = allPiecesArr[i];
+      }
+    }
+    let tempBoard = this.move(space, board, allPiecesArr);
+    let bool = boardMethods.checkChecker(sameKing, allPiecesArr);
+    if (bool) {
+      // set everything back the way it was
+      board = storedBoard;
+      allPiecesArr = storedPieces;
+      let keys = Object.keys(this);
+      keys.forEach(key => {
+        this[key] = storedThis[key];
+      });
+      return true;
+    } else {
+      // set everything back the way it was
+      board = storedBoard;
+      allPiecesArr = storedPieces;
+      let keys = Object.keys(this);
+      keys.forEach(key => {
+        this[key] = storedThis[key];
+      });
+      return false;
+    }
+  }
+  legalMove(space, board, allPiecesArr) {
+    if (arrayIncludes(this.availableMoves, space)) {
+      return this.move(space, board, allPiecesArr);
+    } else {
+      return 'Illegal Move';
+    }
   }
 }
