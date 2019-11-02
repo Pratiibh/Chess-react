@@ -1,6 +1,6 @@
 import React from 'react';
 
-export { checkChecker };
+export { checkChecker, arrayIncludes };
 
 function checkChecker(king, allPiecesArr) {
   let bool = false;

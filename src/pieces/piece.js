@@ -1,3 +1,5 @@
+import { arrayIncludes } from '../board/boardmethods.js';
+
 export default class Piece {
   constructor(startingSpace, color) {
     this.currentSpace = startingSpace;
@@ -106,5 +108,13 @@ export default class Piece {
       current = [cy + parseInt(dy), cx + parseInt(dx)];
     }
     return newAvailableMoves;
+  }
+
+  legalMove(space, board, allPiecesArr) {
+    if (arrayIncludes(this.availableMoves, space)) {
+      return this.move(space, board, allPiecesArr);
+    } else {
+      return 'Illegal Move';
+    }
   }
 }
