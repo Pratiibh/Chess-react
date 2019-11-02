@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
 import { checkChecker } from './board/boardmethods.js';
+import Updater from './api/board-updater.js';
 
 //this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
@@ -31,6 +32,7 @@ function App() {
       </button>
       <DisplayBoard board={state} />
       <GameBoard board={state} />
+      <Updater board={state} />
     </>
   );
 }
