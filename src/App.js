@@ -10,7 +10,7 @@ import Updater from './api/board-updater.js';
 import * as boardItems from './board/startingBoard.js';
 
 function App() {
-  let defaultPieceState = { piece: null }
+  let defaultPieceState = { piece: null };
   let targetId;
 
   let [state, setState] = useState({ ...boardItems });
@@ -18,42 +18,45 @@ function App() {
   let [moveList, setMoveList] = useState([]);
 
   useEffect(() => {
-    const showAvailableMoves = (moves) => {
-
+    const showAvailableMoves = moves => {
       moves.forEach((move, idx) => {
-        targetId = `${move[0]}${move[1]}`
+        targetId = `${move[0]}${move[1]}`;
         let myId = document.getElementById(targetId);
         myId.classList.add('flash');
       });
     };
 
-    if (activePiece.piece) { showAvailableMoves(activePiece.piece.availableMoves) }
-
-  }, [activePiece])
-
-
+    if (activePiece.piece) {
+      showAvailableMoves(activePiece.piece.availableMoves);
+    }
+  }, [activePiece]);
 
   const returnToDefault = () => {
     let elems = document.querySelectorAll('span.flash');
     elems.forEach(elem => {
-      elem.classList.remove('flash')
-    })
-
+      elem.classList.remove('flash');
+    });
   };
 
   function handleClick(position) {
     if (activePiece.piece === null) {
-      setActivePiece({ piece: state.startingBoard[position[0]][position[1]] });
-    }
-    else {
-      let moveArr = [activePiece.piece.currentSpace , position];
-      setMoveList([...moveList, moveArr])
-      activePiece.piece.legalMove(position, state.startingBoard, state.pieceArr);
+      if (state.startingBoard[position[0]]) {
+        setActivePiece({
+          piece: state.startingBoard[position[0]][position[1]]
+        });
+      }
+    } else {
+      let moveArr = [activePiece.piece.currentSpace, position];
+      setMoveList([...moveList, moveArr]);
+      activePiece.piece.legalMove(
+        position,
+        state.startingBoard,
+        state.pieceArr
+      );
 
       setActivePiece(defaultPieceState);
       returnToDefault();
     }
-
   }
 
   function resetBoard() {
@@ -66,14 +69,15 @@ function App() {
       <button onClick={() => resetBoard()}> Reset board</button>
       <DisplayBoard board={state} />
 
-      <div onClick={(e) => {
-        let clickedPiece = e.target.id.split('');
-        let parsedId = clickedPiece.map(num => {
-          return parseInt(num);
-        })
-        handleClick(parsedId);
-      }} >
-
+      <div
+        onClick={e => {
+          let clickedPiece = e.target.id.split('');
+          let parsedId = clickedPiece.map(num => {
+            return parseInt(num);
+          });
+          handleClick(parsedId);
+        }}
+      >
         <GameBoard board={state} />
       </div>
       <Updater moves={moveList} />
