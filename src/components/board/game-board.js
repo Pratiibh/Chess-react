@@ -28,6 +28,6 @@ export default class Board extends React.Component {
       board.push(<div className="board-row">{rows}</div>);
     }
 
-    return <div className="board-container">{board}</div>;
+    return <div id="clear" className="board-container">{board}</div>;
   }
 }
