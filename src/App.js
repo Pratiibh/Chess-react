@@ -55,6 +55,7 @@ function App() {
         grimReaper(position);
       }
 
+
       activePiece.piece.legalMove(
         position,
         state.startingBoard,
