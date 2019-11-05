@@ -5,7 +5,7 @@ import DisplayBoard from './components/board/display-board.js';
 import { checkChecker } from './board/boardmethods.js';
 import Updater from './api/board-updater.js';
 
-//this imports the board as well as all the objects (pieces)
+// this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
 import * as boardItems from './board/startingBoard.js';
 
@@ -46,7 +46,9 @@ function App() {
       setActivePiece({ piece: state.startingBoard[position[0]][position[1]] });
     }
     else {
-      activePiece.piece.legalMove(position, state.startingBoard, state.pieceArr)
+      let moveArr = [activePiece.piece.currentSpace , position];
+      setMoveList([...moveList, moveArr])
+      activePiece.piece.legalMove(position, state.startingBoard, state.pieceArr);
 
       setActivePiece(defaultPieceState);
       returnToDefault();
@@ -74,7 +76,7 @@ function App() {
 
         <GameBoard board={state} />
       </div>
-      <Updater board={state} />
+      <Updater moves={moveList} />
     </>
   );
 }
