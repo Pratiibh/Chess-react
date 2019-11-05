@@ -46,7 +46,7 @@ function App() {
       setActivePiece({ piece: state.startingBoard[position[0]][position[1]] });
     }
     else {
-      let moveArr = [activePiece.piece.currentSpace , position];
+      let moveArr = [activePiece.piece.currentSpace, position];
       setMoveList([...moveList, moveArr])
       activePiece.piece.legalMove(position, state.startingBoard, state.pieceArr);
 
@@ -72,7 +72,7 @@ function App() {
         })
         handleClick(parsedId);
       }} >
-      <DisplayBoard board={state} />
+        <DisplayBoard board={state} />
 
         <GameBoard board={state} />
       </div>
