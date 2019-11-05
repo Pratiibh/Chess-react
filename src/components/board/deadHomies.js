@@ -6,16 +6,15 @@ export default function(props){
     console.log(props)
     return(
         <>
-        <ul>
-            white dead pieces
+        <ul className="dead-homies-white">
+           
         {deadWhite.map( piece => {
-            return (<li> {piece.name} </li>)
+            return (<li> <img src={piece.icon} width='45' /></li>)
         })}
         </ul>
-        <ul>
-            black dead pieces
+        <ul className="dead-homies-black">
         {deadBlack.map( piece => {
-            return (<li>{piece.name}</li>)
+            return (<li> <img src={piece.icon} width='45' /></li>)
         })}
         </ul>
         </>

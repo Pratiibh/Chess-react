@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './App.css';
+import './App.css';
 import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
 import { checkChecker } from './board/boardmethods.js';
@@ -89,7 +89,7 @@ function App() {
 
   return (
     <>
-      <button onClick={() => resetBoard()}> Reset board</button>
+      <button className='reset' onClick={() => resetBoard()}> Reset board</button>
       <DeadHomies white={deadWhite} black={deadBlack} />
       <Updater moves={moveList} />
       <DisplayBoard board={state} />
