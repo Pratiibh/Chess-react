@@ -15,7 +15,7 @@ function App() {
 
   let [state, setState] = useState({ ...boardItems });
   let [activePiece, setActivePiece] = useState(defaultPieceState);
-  // let [moveList, setMoveList] = useState([]);
+  let [moveList, setMoveList] = useState([]);
 
   useEffect(() => {
     const showAvailableMoves = (moves) => {
@@ -64,7 +64,6 @@ function App() {
   return (
     <>
       {/* <button onClick={() => resetBoard()}> Reset board</button> */}
-      <DisplayBoard board={state} />
 
       <div onClick={(e) => {
         let clickedPiece = e.target.id.split('');
@@ -73,6 +72,7 @@ function App() {
         })
         handleClick(parsedId);
       }} >
+      <DisplayBoard board={state} />
 
         <GameBoard board={state} />
       </div>

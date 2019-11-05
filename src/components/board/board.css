@@ -1,5 +1,5 @@
 body {
-  margin: 150px;
+  margin: auto;
   background-color: #ECECEA;
 }
 
@@ -8,7 +8,7 @@ body {
   display: table;
   margin-left:auto; 
   margin-right:auto;
- 
+  
 }
 
 .board-container{
@@ -68,43 +68,26 @@ background-color: RGB(125, 135, 150);
 
 @-webkit-keyframes flash {
   0% { opacity: .3; }
-  100% { opacity: 1; }
+  50% { opacity: 1; }
  }
  @keyframes flash {
   0% { opacity: .3; }
-  100% { opacity: .7; }
+  50% { opacity: .7; }
  }
 
  .flash {
-  background-color: green;
-  opacity: 1;
-  -webkit-animation: flash 8s;
-  animation: flash 8s;
+  background-color: rgb(117, 243, 95);
+  opacity: .3;
+  -webkit-animation: flash 9s;
+  animation: flash 9s;
  }
 
  @-webkit-keyframes flash {
-  0%, 50%, 100% { opacity: 1; }
+  0%, 50%, 100% { opacity: .3; }
   25%, 75% { opacity: 0; }
  }
  @keyframes flash {
-  0%, 50%, 100% { opacity: 1; }
+  0%, 50%, 100% { opacity: 0.3; }
   25%, 75% { opacity: 0; }
  }
-
- .react-draggable, .cursor {
-  cursor: move;
-}
-.no-cursor {
-  cursor: auto;
-}
-.cursor-y {
-  cursor: ns-resize;
-}
-.cursor-x {
-  cursor: ew-resize;
-}
-
-.icon {
-  text-align: center;
-}
 
