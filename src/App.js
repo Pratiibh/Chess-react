@@ -10,88 +10,69 @@ import Updater from './api/board-updater.js';
 import * as boardItems from './board/startingBoard.js';
 
 function App() {
-  let positionTracker = { start: null, end: null}
+  let defaultPieceState = { piece: null }
+  let targetId;
+
   let [state, setState] = useState({ ...boardItems });
-  let [activePiece, setActivePiece] = useState(positionTracker);
+  let [activePiece, setActivePiece] = useState(defaultPieceState);
   let [moveList, setMoveList] = useState([]);
 
-  // 2 new state vars, start and end
-  // start = id on mouse over
-  //end = id on mouse release
-
   useEffect(() => {
-    if(activePiece.start && activePiece.end) {
-      
-      let newBoard =
-      state.startingBoard &&
-      state.startingBoard[activePiece.start[0]][activePiece.start[1]].legalMove(activePiece.end, state.startingBoard, state.pieceArr);
-    setState({ ...state, currentBoard: newBoard });
-    // this needs to be extended to cover both kings this is sort of a MVP version of checking for check
-    checkChecker(boardItems.wkng, boardItems.pieceArr);
-    checkChecker(boardItems.bkng, boardItems.pieceArr);
+    const showAvailableMoves = (moves) => {
 
-    setActivePiece(positionTracker);
+      moves.forEach((move, idx) => {
+        targetId = `${move[0]}${move[1]}`
+        let myId = document.getElementById(targetId);
+        myId.classList.add('flash');
+      });
+    };
+
+    if (activePiece.piece) { showAvailableMoves(activePiece.piece.availableMoves) }
+
+  }, [activePiece])
+
+
+
+  const returnToDefault = () => {
+    let elems = document.querySelectorAll('span.flash');
+    elems.forEach(elem => {
+      elem.classList.remove('flash')
+    })
+
+  };
+
+  function handleClick(position) {
+    if (activePiece.piece === null) {
+      setActivePiece({ piece: state.startingBoard[position[0]][position[1]] });
     }
-  },[activePiece])
-  
-  function handleClick(pos) {
-    if(activePiece.start === null) {
-      setActivePiece({...activePiece, start: pos });
+    else {
+      activePiece.piece.legalMove(position, state.startingBoard, state.pieceArr)
+
+      setActivePiece(defaultPieceState);
+      returnToDefault();
     }
-    else {setActivePiece({...activePiece, end: pos })}
-    
 
-    // if(activePiece.start && activePiece.end) {
-      
-    //   let newBoard =
-    //   state.startingBoard &&
-    //   state.startingBoard[activePiece.start[0]][activePiece.start[1]].move(activePiece.end, state.startingBoard, state.pieceArr);
-    // setState({ ...state, currentBoard: newBoard });
-    // // this needs to be extended to cover both kings this is sort of a MVP version of checking for check
-    // checkChecker(boardItems.wkng, boardItems.pieceArr);
-    // checkChecker(boardItems.bkng, boardItems.pieceArr);
-
-    // setActivePiece(positionTracker);
-    // }
-  }
-  
-  function moveQueen() {
-    let newBoard =
-      state.startingBoard &&
-      state.startingBoard[1][3].move(
-        [6, 4],
-        state.startingBoard,
-        state.pieceArr
-      );
-    state.startingBoard[1][2].move([6, 3], state.startingBoard, state.pieceArr);
-    setState({ ...state, currentBoard: newBoard });
-    // this needs to be extended to cover both kings this is sort of a MVP version of checking for check
-    checkChecker(boardItems.wkng, boardItems.pieceArr);
-    checkChecker(boardItems.bkng, boardItems.pieceArr);
   }
 
   function resetBoard() {
     let resettedBoard = state.resetBoard();
     setState({ ...state, startingBoard: resettedBoard });
   }
+
   return (
     <>
       <button onClick={() => resetBoard()}> Reset board</button>
       <DisplayBoard board={state} />
 
-      <div onClick={(e) => { 
+      <div onClick={(e) => {
         let clickedPiece = e.target.id.split('');
-        let parsed = clickedPiece.map(int => {
-          return parseInt(int);
+        let parsedId = clickedPiece.map(num => {
+          return parseInt(num);
         })
-      handleClick(parsed);
-      }}
-
-        onMouseUp={(e) => {let endPosition = e.target.id.split('')
-        // console.log(endPosition)
+        handleClick(parsedId);
       }} >
-        
-      <GameBoard board={state} />
+
+        <GameBoard board={state} />
       </div>
       <Updater board={state} />
     </>
