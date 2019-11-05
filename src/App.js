@@ -17,7 +17,8 @@ function App() {
   let [state, setState] = useState({ ...boardItems });
   let [activePiece, setActivePiece] = useState(defaultPieceState);
   let [moveList, setMoveList] = useState([]);
-  let [deadList, setDeadList] = useState({ white: [], black: [] });
+  let [deadWhite, setDeadWhite] = useState([]);
+  let [deadBlack, setDeadBlack] = useState([]);
 
   useEffect(() => {
     const showAvailableMoves = moves => {
@@ -50,7 +51,9 @@ function App() {
     } else {
       let moveArr = [activePiece.piece.currentSpace, position];
       setMoveList([...moveList, moveArr]);
-      // grimReaper(position);
+      if (state.startingBoard[position[0]][position[1]]) {
+        grimReaper(position);
+      }
 
       activePiece.piece.legalMove(
         position,
@@ -74,12 +77,11 @@ function App() {
       console.log(victim);
       if (victim) {
         if (victim.color === 'white') {
-          deadList.white = [...deadList.white, victim];
+          setDeadWhite([...deadWhite, victim]);
         }
         if (victim.color === 'black') {
-          deadList.black = [...deadList.black, victim];
+          setDeadBlack([...deadBlack, victim]);
         }
-        setDeadList({ deadList });
       }
     }
   }
@@ -87,7 +89,7 @@ function App() {
   return (
     <>
       <button onClick={() => resetBoard()}> Reset board</button>
-      <DeadHomies white={deadList.white} black={deadList.black} />
+      <DeadHomies white={deadWhite} black={deadBlack} />
       <Updater moves={moveList} />
       <DisplayBoard board={state} />
 

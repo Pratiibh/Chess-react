@@ -9,13 +9,13 @@ export default function(props){
         <ul>
             white dead pieces
         {deadWhite.map( piece => {
-            return (<li> {piece.icon} </li>)
+            return (<li> {piece.name} </li>)
         })}
         </ul>
         <ul>
             black dead pieces
         {deadBlack.map( piece => {
-            return (<li>{piece.icon}</li>)
+            return (<li>{piece.name}</li>)
         })}
         </ul>
         </>
