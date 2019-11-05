@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 
 export default function Spaces(props) {
@@ -11,7 +11,7 @@ export default function Spaces(props) {
       id={id}
       className={defaultClass}
     >
-      <img id={id} className="icon" src={props.piece && props.piece.icon} width="30" />
+      <img id={id} className="icon" src={props.piece && props.piece.icon} width="60" />
 
     </span>
   );
