@@ -1,11 +1,11 @@
 body {
   margin: auto;
-  background-color: #ECECEA;
 }
 
 .board-row {
   
-  display: table;
+  display: flex;
+  flex-direction: row;
   margin-left:auto; 
   margin-right:auto;
   
@@ -15,8 +15,6 @@ body {
   position: absolute;
   top: 20%;
   left: 50%;
-  width: 800px;
-  height: 800px;
 }
 
 
@@ -91,3 +89,46 @@ background-color: RGB(125, 135, 150);
   25%, 75% { opacity: 0; }
  }
 
+ .dead-homies-white {
+   display: flex;
+   justify-content: space-evenly;
+  position: relative;
+  left: 15%;
+  top: 190px;
+  background: transparent;
+  border: 1px solid transparent;
+  float: left;
+  font-size: 8px;
+  font-weight: bold;
+  color: white;
+}
+
+ .dead-homies-black {
+  display: flex;
+  justify-content: space-evenly;
+  left: 60%;
+  top: 190px;
+  position: relative;
+  background: transparent;
+  border: 1px solid transparent;
+  float: left;
+  font-size: 8px;
+  font-weight: bold;
+  color: white; 
+ }
+
+ ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 200px;
+  margin-left: 0;
+  margin-right: 0;;
+}
+
+
+ul li{
+  display: flex;
+}
