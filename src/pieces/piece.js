@@ -147,11 +147,19 @@ export default class Piece {
       return false;
     }
   }
+
   legalMove(space, board, allPiecesArr) {
     if (arrayIncludes(this.availableMoves, space)) {
       return this.move(space, board, allPiecesArr);
     } else {
       return 'Illegal Move';
     }
+  }
+
+  // expand on the legalMove with another conditional to block out the breakcases
+
+  findOldMove(y, x) {
+    let oldMove = [x[0] - y[0], x[1] - y[1]];
+    return oldMove;
   }
 }
