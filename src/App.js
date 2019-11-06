@@ -4,8 +4,8 @@ import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
 import Updater from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
-import Nav from './components/banner/banner.js'
-import {arrayIncludes} from './board/boardmethods.js'
+import Nav from './components/banner/banner.js';
+import { arrayIncludes } from './board/boardmethods.js';
 
 // this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
@@ -20,6 +20,7 @@ function App() {
   let [moveList, setMoveList] = useState([]);
   let [deadWhite, setDeadWhite] = useState([]);
   let [deadBlack, setDeadBlack] = useState([]);
+  let [turn, setTurn] = useState('white');
 
   useEffect(() => {
     const showAvailableMoves = moves => {
@@ -42,21 +43,31 @@ function App() {
     });
   };
 
+  function flipTurn(turnString) {
+    return turnString === 'white' ? 'black' : 'white';
+  }
+
   function handleClick(position) {
     if (activePiece.piece === null) {
       if (state.startingBoard[position[0]]) {
-        setActivePiece({
-          piece: state.startingBoard[position[0]][position[1]]
-        });
+        if (state.startingBoard[position[0]][position[1]].color === turn) {
+          setActivePiece({
+            piece: state.startingBoard[position[0]][position[1]]
+          });
+        }
       }
     } else {
       let moveArr = [activePiece.piece.currentSpace, position];
       setMoveList([...moveList, moveArr]);
-      if (state.startingBoard[position[0]][position[1]] && arrayIncludes(activePiece.piece.availableMoves, position) ) {
+      if (
+        state.startingBoard[position[0]][position[1]] &&
+        arrayIncludes(activePiece.piece.availableMoves, position)
+      ) {
         grimReaper(position);
       }
-
-
+      if (arrayIncludes(activePiece.piece.availableMoves, position)) {
+        setTurn(flipTurn(turn));
+      }
       activePiece.piece.legalMove(
         position,
         state.startingBoard,
@@ -74,6 +85,7 @@ function App() {
     setDeadBlack([]);
     setDeadWhite([]);
     setMoveList([]);
+    setTurn('white');
   }
   function grimReaper(position) {
     if (state.startingBoard[position[0]]) {
@@ -92,8 +104,10 @@ function App() {
   return (
     <>
       {/* <button className='reset' onClick={() => resetBoard()}> Reset board</button> */}
-      <Nav/>
-      <div><span id='banner-text'>ULTIMATE CHESS</span></div>
+      <Nav />
+      <div>
+        <span id="banner-text">ULTIMATE CHESS</span>
+      </div>
       <DeadHomies white={deadWhite} black={deadBlack} />
       <Updater moves={moveList} />
       <DisplayBoard board={state} />
