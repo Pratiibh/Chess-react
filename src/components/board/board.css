@@ -17,9 +17,9 @@ body {
   left: 50%;
   margin: auto;
   padding: 0;
+  cursor: pointer;
+
 }
-
-
 
 .game-pieces {
   position: relative;

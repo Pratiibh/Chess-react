@@ -8,7 +8,6 @@
   background-image: url("");
   background-repeat: no-repeat;
   background-size: cover; 
-  
 }
 
 
@@ -66,7 +65,9 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 .nav li:hover{
-  
+  background: lightslategrey;
+  cursor: pointer;
+
 }
 @media screen and (max-width: 1200px) {
   .reset {
