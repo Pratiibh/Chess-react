@@ -50,7 +50,7 @@ function App() {
   function handleClick(position) {
     if (activePiece.piece === null) {
       if (state.startingBoard[position[0]]) {
-        if (state.startingBoard[position[0]][position[1]].color === turn) {
+        if (state.startingBoard[position[0]][position[1]] && state.startingBoard[position[0]][position[1]].color === turn) {
           setActivePiece({
             piece: state.startingBoard[position[0]][position[1]]
           });
