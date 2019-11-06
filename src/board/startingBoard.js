@@ -1,6 +1,6 @@
 // 'use strict'
 
-import Pawn from '../pieces/pawn.js';
+import Pawn from '../pieces/newPawn.js';
 import Rook from '../pieces/rook.js';
 import Knight from '../pieces/knight.js';
 import Bishop from '../pieces/bishop.js';
