@@ -2,8 +2,6 @@ import React from 'react';
 import './board.css';
 import Spaces from './game-spaces.js';
 
-const API = 'http://localhost:3000/api/v1/board';
-
 export default class Board extends React.Component {
   renderSpace(i, j) {
     let boardItems = this.props.board.startingBoard;
