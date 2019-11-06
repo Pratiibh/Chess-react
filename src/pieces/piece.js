@@ -114,9 +114,9 @@ export default class Piece {
 
   moveIntoCheck(space, board, allPiecesArr) {
     let sameKing = null;
-    let storedBoard = [...board];
+    // let storedBoard = [...board];
     let storedPieces = [...allPiecesArr];
-    let storedThis = { ...this };
+    // let storedThis = { ...this };
     for (let i = 0; i < storedPieces.length; i++) {
       if (
         storedPieces[i].color === this.color &&
@@ -125,26 +125,11 @@ export default class Piece {
         sameKing = allPiecesArr[i];
       }
     }
-    let tempBoard = this.move(space, board, allPiecesArr);
     let bool = boardMethods.checkChecker(sameKing, allPiecesArr);
     if (bool) {
-      // set everything back the way it was
-      board = storedBoard;
-      allPiecesArr = storedPieces;
-      let keys = Object.keys(this);
-      keys.forEach(key => {
-        this[key] = storedThis[key];
-      });
-      return true;
+      //roll back board
     } else {
-      // set everything back the way it was
-      board = storedBoard;
-      allPiecesArr = storedPieces;
-      let keys = Object.keys(this);
-      keys.forEach(key => {
-        this[key] = storedThis[key];
-      });
-      return false;
+      // move on with your life
     }
   }
   legalMove(space, board, allPiecesArr) {
