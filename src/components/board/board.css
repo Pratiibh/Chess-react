@@ -1,17 +1,22 @@
 body {
-  margin: 150px;
-  background-color: #ECECEA;
+  margin: auto;
 }
 
 .board-row {
-  display: table;
+  
+  display: flex;
+  flex-direction: row;
   margin-left:auto; 
   margin-right:auto;
+  
 }
 
 .board-container{
   position: absolute;
+  top: 25%;
   left: 50%;
+  margin: auto;
+  padding: 0;
 }
 
 
@@ -19,18 +24,17 @@ body {
 .game-pieces {
   position: relative;
   left: -50%;
-
   background: transparent;
   border: 1px solid transparent;
   float: left;
   font-size: 8px;
   font-weight: bold;
   line-height: 34px;
-  height: 48px;
+  height: 75px;
   margin-right: -1px;
   margin-top: -1px;
   text-align: center;
-  width: 48px; 
+  width: 75px; 
   border: solid;
   border-color: transparent;
 }
@@ -44,14 +48,14 @@ body {
   font-size: 8px;
   font-weight: bold;
   line-height: 34px;
-  height: 48px;
+  height: 75px;
   margin-right: -1px;
   margin-top: -1px;
   text-align: center;
-  width: 48px;
+  width: 75px;
   color: white;
   border: solid;
-  border-color: lightgray
+  border-color: lightgray;
 }
 
 .dark-space{
@@ -64,49 +68,103 @@ background-color: RGB(125, 135, 150);
 
 @-webkit-keyframes flash {
   0% { opacity: .3; }
-  100% { opacity: 1; }
+  50% { opacity: 1; }
  }
  @keyframes flash {
   0% { opacity: .3; }
-  100% { opacity: .7; }
+  50% { opacity: .7; }
  }
 
  .flash {
-  background-color: green;
-  opacity: 1;
-  -webkit-animation: flash 8s;
-  animation: flash 8s;
+  background-color: rgb(117, 243, 95);
+  opacity: .3;
+  -webkit-animation: flash 9s;
+  animation: flash 9s;
  }
 
  @-webkit-keyframes flash {
-  0%, 50%, 100% { opacity: 1; }
+  0%, 50%, 100% { opacity: .5; }
   25%, 75% { opacity: 0; }
  }
  @keyframes flash {
-  0%, 50%, 100% { opacity: 1; }
+  0%, 50%, 100% { opacity: 0.5; }
   25%, 75% { opacity: 0; }
  }
 
- .react-draggable, .cursor {
-  cursor: move;
+ .dead-homies-white {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  position: relative;
+  left: 15%;
+  top: 240px;
+  background: transparent;
+  border: 1px solid transparent;
+  float: left;
+  font-size: 8px;
+  font-weight: bold;
+  color: white;
+  margin: auto;
 }
-.no-cursor {
-  cursor: auto;
-}
-.cursor-y {
-  cursor: ns-resize;
-}
-.cursor-x {
-  cursor: ew-resize;
-}
-.react-draggable strong {
-  background: #ddd;
-  border: 1px solid #999;
-  border-radius: 3px;
-  display: block;
-  margin-bottom: 10px;
-  padding: 3px 5px;
-  text-align: center;
+
+ .dead-homies-black {
+  display: flex;
+  justify-content: space-evenly;
+  left: 60%;
+  top: 240px;
+  position: relative;
+  background: transparent;
+  border: 1px solid transparent;
+  float: left;
+  font-size: 8px;
+  font-weight: bold;
+  color: white; 
+ }
+
+ ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 150px;
 }
 
 
+ul li{
+  display: flex;
+
+}
+
+.icon{
+  width: 60px;
+}
+
+@media screen and (max-width: 900px) {
+  .icon {
+    width: 40px;
+  }
+
+  .display-spaces, .game-pieces {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dead-homies-white{
+    left: 0;
+  float: left;
+  top: 190px;
+  }
+
+  .dead-homies-black{
+    left: 0;
+    padding: 0;
+  float: right;
+  top: 190px;
+  }
+  
+  ul{
+    width: 100px;
+    margin: 0;
+  }
+}
