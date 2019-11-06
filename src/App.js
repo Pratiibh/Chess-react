@@ -5,6 +5,7 @@ import DisplayBoard from './components/board/display-board.js';
 import { checkChecker } from './board/boardmethods.js';
 import Updater from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
+import Nav from './components/banner/banner.js'
 
 // this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
@@ -89,7 +90,9 @@ function App() {
 
   return (
     <>
-      <button className='reset' onClick={() => resetBoard()}> Reset board</button>
+      {/* <button className='reset' onClick={() => resetBoard()}> Reset board</button> */}
+      <Nav/>
+      <div><span id='banner-text'>ULTIMATE CHESS</span></div>
       <DeadHomies white={deadWhite} black={deadBlack} />
       <Updater moves={moveList} />
       <DisplayBoard board={state} />
