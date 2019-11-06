@@ -6,6 +6,8 @@ import Updater from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
 import Nav from './components/banner/banner.js';
 import { arrayIncludes } from './board/boardmethods.js';
+import exampleGame from './board/exampleGame.js';
+import { doManyMoves } from './board/redoMove.js';
 
 // this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
@@ -50,7 +52,10 @@ function App() {
   function handleClick(position) {
     if (activePiece.piece === null) {
       if (state.startingBoard[position[0]]) {
-        if (state.startingBoard[position[0]][position[1]] && state.startingBoard[position[0]][position[1]].color === turn) {
+        if (
+          state.startingBoard[position[0]][position[1]] &&
+          state.startingBoard[position[0]][position[1]].color === turn
+        ) {
           setActivePiece({
             piece: state.startingBoard[position[0]][position[1]]
           });
@@ -104,7 +109,7 @@ function App() {
   return (
     <>
       {/* <button className='reset' onClick={() => resetBoard()}> Reset board</button> */}
-      <Nav />
+      <Nav/>
       <div>
         <span id="banner-text">ULTIMATE CHESS</span>
       </div>
