@@ -13,8 +13,10 @@ body {
 
 .board-container{
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 50%;
+  margin: auto;
+  padding: 0;
 }
 
 
@@ -53,7 +55,7 @@ body {
   width: 75px;
   color: white;
   border: solid;
-  border-color: lightgray
+  border-color: lightgray;
 }
 
 .dark-space{
@@ -81,33 +83,35 @@ background-color: RGB(125, 135, 150);
  }
 
  @-webkit-keyframes flash {
-  0%, 50%, 100% { opacity: .3; }
+  0%, 50%, 100% { opacity: .5; }
   25%, 75% { opacity: 0; }
  }
  @keyframes flash {
-  0%, 50%, 100% { opacity: 0.3; }
+  0%, 50%, 100% { opacity: 0.5; }
   25%, 75% { opacity: 0; }
  }
 
  .dead-homies-white {
-   display: flex;
-   justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
   position: relative;
   left: 15%;
-  top: 190px;
+  top: 240px;
   background: transparent;
   border: 1px solid transparent;
   float: left;
   font-size: 8px;
   font-weight: bold;
   color: white;
+  margin: auto;
 }
 
  .dead-homies-black {
   display: flex;
   justify-content: space-evenly;
   left: 60%;
-  top: 190px;
+  top: 240px;
   position: relative;
   background: transparent;
   border: 1px solid transparent;
@@ -123,12 +127,44 @@ background-color: RGB(125, 135, 150);
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 200px;
-  margin-left: 0;
-  margin-right: 0;;
+  width: 150px;
 }
 
 
 ul li{
   display: flex;
+
+}
+
+.icon{
+  width: 60px;
+}
+
+@media screen and (max-width: 900px) {
+  .icon {
+    width: 40px;
+  }
+
+  .display-spaces, .game-pieces {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dead-homies-white{
+    left: 0;
+  float: left;
+  top: 190px;
+  }
+
+  .dead-homies-black{
+    left: 0;
+    padding: 0;
+  float: right;
+  top: 190px;
+  }
+  
+  ul{
+    width: 100px;
+    margin: 0;
+  }
 }
