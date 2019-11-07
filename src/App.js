@@ -4,7 +4,7 @@ import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
 import Updater from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
-import {deadPieces} from './board/dead-piece-arr.js'
+import {deadPieces} from './board/dead-piece-arr.js';
 import { arrayIncludes } from './board/boardmethods.js';
 import exampleGame from './board/exampleGame.js';
 import { doManyMoves } from './board/redoMove.js';
@@ -22,10 +22,9 @@ function App() {
   let [state, setState] = useState({ ...boardItems });
   let [activePiece, setActivePiece] = useState(defaultPieceState);
   let [moveList, setMoveList] = useState([]);
-  // let [deadWhite, setDeadWhite] = useState(...deadPieces, deadPieces[0].whitePieces);
-  // let [deadBlack, setDeadBlack] = useState(...deadPieces[0].blackPieces);
   let [deadGuys, setDeadGuys] = useState([...deadPieces])
   let [check, setCheck] = useState({inCheck:null})
+  
   const setDeadWhite = (victim) => {
     deadGuys[0].whitePieces = [...deadPieces[0].whitePieces, victim];
     setDeadGuys([...deadGuys]);
