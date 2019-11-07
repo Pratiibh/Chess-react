@@ -4,11 +4,11 @@ import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
 import Updater from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
-import {deadPieces} from './board/dead-piece-arr.js'
-import { arrayIncludes } from './board/boardmethods.js';
+import { deadPieces } from './board/dead-piece-arr.js';
+import { arrayIncludes, whereIsKing } from './board/boardmethods.js';
 import exampleGame from './board/exampleGame.js';
 import { doManyMoves } from './board/redoMove.js';
-import Hero from './components/hero-text/hero-text.js'
+import Hero from './components/hero-text/hero-text.js';
 
 // this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
@@ -24,17 +24,19 @@ function App() {
   let [moveList, setMoveList] = useState([]);
   // let [deadWhite, setDeadWhite] = useState(...deadPieces, deadPieces[0].whitePieces);
   // let [deadBlack, setDeadBlack] = useState(...deadPieces[0].blackPieces);
-  let [deadGuys, setDeadGuys] = useState([...deadPieces])
-  let [check, setCheck] = useState({inCheck:null})
-  const setDeadWhite = (victim) => {
+  let [deadGuys, setDeadGuys] = useState([...deadPieces]);
+  let [check, setCheck] = useState({ inCheck: null });
+  let [checkedKingLoc, setCheckedKingLoc] = [];
+
+  const setDeadWhite = victim => {
     deadGuys[0].whitePieces = [...deadPieces[0].whitePieces, victim];
     setDeadGuys([...deadGuys]);
-  }
+  };
 
-  const setDeadBlack = (victim) => {
+  const setDeadBlack = victim => {
     deadGuys[0].blackPieces = [...deadPieces[0].blackPieces, victim];
     setDeadGuys([...deadGuys]);
-  }
+  };
 
   let [turn, setTurn] = useState('white');
 
@@ -50,7 +52,8 @@ function App() {
     if (activePiece.piece) {
       showAvailableMoves(activePiece.piece.availableMoves);
     }
-    console.log(check)
+    let kingLoc = whereIsKing(check.inCheck, state.pieceArr);
+    console.log(check, kingLoc);
   }, [activePiece]);
 
   const returnToDefault = () => {
@@ -142,21 +145,25 @@ function App() {
   return (
     <>
       <Hero />
-      <div id='board-container'>
-      <DeadHomies white={deadGuys[0].whitePieces} black={deadGuys[0].blackPieces} />
-      <Updater moves={moveList} />
-      <DisplayBoard board={state} />
-   
-      <div
-        onClick={e => {
-          let clickedPiece = e.target.id.split('');
-          let parsedId = clickedPiece.map(num => {
-            return parseInt(num);
-          });
-          handleClick(parsedId);
-        }}>
-        <GameBoard board={state} />
-      </div>
+      <div id="board-container">
+        <DeadHomies
+          white={deadGuys[0].whitePieces}
+          black={deadGuys[0].blackPieces}
+        />
+        <Updater moves={moveList} />
+        <DisplayBoard board={state} />
+
+        <div
+          onClick={e => {
+            let clickedPiece = e.target.id.split('');
+            let parsedId = clickedPiece.map(num => {
+              return parseInt(num);
+            });
+            handleClick(parsedId);
+          }}
+        >
+          <GameBoard board={state} />
+        </div>
       </div>
     </>
   );

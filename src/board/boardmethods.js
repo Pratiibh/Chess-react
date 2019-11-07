@@ -1,6 +1,6 @@
 // import React from 'react';
 
-export { checkChecker, arrayIncludes };
+export { checkChecker, arrayIncludes, whereIsKing };
 
 function checkChecker(king, allPiecesArr) {
   let bool = false;
@@ -22,4 +22,18 @@ function arrayIncludes(bigArr, lilArr) {
     }
   });
   return bool;
+}
+
+function whereIsKing(color, allPiecesArr){
+  if(!color){return []}
+  let king
+  allPiecesArr.forEach((piece,i) => {
+    if(
+      piece.name === 'King' &&
+      piece.color === color
+    ){
+      king = allPiecesArr[i]
+    }
+  })
+  return king ? king.currentSpace : null
 }
