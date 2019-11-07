@@ -1,0 +1,22 @@
+.about{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  position: relative;
+  top: 300px;
+}
+
+.about-container{
+  display: flex;
+  flex-direction: row;
+}
+
+ul{
+  text-align: center;
+}
+
+.about li{
+  display: inline-block;
+}
+
