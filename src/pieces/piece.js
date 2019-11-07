@@ -136,10 +136,10 @@ export default class Piece {
 
   legalMove(space, board, allPiecesArr, cb) {
     if (arrayIncludes(this.availableMoves, space)) {
-      this.move(space, board, allPiecesArr);
+      let returnboard = this.move(space, board, allPiecesArr);
       let checkObj = this.moveIntoCheck(space, board, allPiecesArr);
-      cb(checkObj)
-      return ''
+      if(cb){cb(checkObj)}
+      return returnboard
     } else {
       return 'Illegal Move';
     }
