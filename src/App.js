@@ -44,6 +44,7 @@ function App() {
     const showAvailableMoves = moves => {
       moves.forEach((move, idx) => {
         targetId = `${move[0]}${move[1]}`;
+        console.log(targetId)
         let myId = document.getElementById(targetId);
         myId.classList.add('flash');
       });
@@ -52,8 +53,20 @@ function App() {
     if (activePiece.piece) {
       showAvailableMoves(activePiece.piece.availableMoves);
     }
-    let kingLoc = whereIsKing(check.inCheck, state.pieceArr);
-    console.log(check, kingLoc);
+
+    const showCheck = (kingLocation) => {
+      kingLocation = whereIsKing(check.inCheck, state.pieceArr);
+      let target = `${kingLocation[0]}${kingLocation[1]}`;
+      let myId = document.getElementById(target);
+      myId.classList.add('check')
+    }
+
+    if(check.inCheck !== null) {
+      showCheck();
+    }
+
+  
+    
   }, [activePiece]);
 
   const returnToDefault = () => {

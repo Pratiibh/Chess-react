@@ -91,6 +91,22 @@ background-color: RGB(125, 135, 150);
   25%, 75% { opacity: 0; }
  }
 
+ .check{
+  background-color: rgb(155, 16, 11);
+  opacity: .3;
+  -webkit-animation: flash 9s;
+  animation: flash 9s;
+ }
+
+ @-webkit-keyframes check {
+  0%, 50%, 100% { opacity: .5; }
+  25%, 75% { opacity: 0; }
+ }
+ @keyframes check {
+  0%, 50%, 100% { opacity: 0.5; }
+  25%, 75% { opacity: 0; }
+ }
+
  .dead-homies-white {
   position: relative;
   left: 17%;
