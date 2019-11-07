@@ -1,5 +1,2 @@
-
-let deadPieces =[{whitePieces: [], blackPieces: []}];
-export {
-  deadPieces,
-}
+let deadPieces = [{ whitePieces: [], blackPieces: [] }];
+export { deadPieces };

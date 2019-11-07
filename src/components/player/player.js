@@ -1,4 +1,4 @@
-import skeletonBoard from "../board/skeletonBoard.js";
+import skeletonBoard from '../board/skeletonBoard.js';
 
 export default class Player {
   // constructor(color, turn, check){
@@ -9,7 +9,7 @@ export default class Player {
 
   state = {
     players: {
-      color: "white",
+      color: 'white',
       turn: false,
       check: false
     }
@@ -21,5 +21,5 @@ export default class Player {
     this.check = check;
   };
 
-  playerOne = new Player("white");
+  playerOne = new Player('white');
 }
