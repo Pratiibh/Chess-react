@@ -12,6 +12,7 @@ import { doManyMoves } from './board/redoMove.js';
 // this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
 import * as boardItems from './board/startingBoard.js';
+import { stat } from 'fs';
 
 function App() {
   let defaultPieceState = { piece: null };
@@ -89,7 +90,6 @@ function App() {
     setState({ ...state, startingBoard: resettedBoard });
     setDeadBlack([]);
     setDeadWhite([]);
-    setMoveList([]);
     setTurn('white');
   }
   function grimReaper(position) {
@@ -106,10 +106,31 @@ function App() {
     }
   }
 
+  function undoMove(arrayOfMoves) {
+    console.log('begin undo move logging');
+    console.log(arrayOfMoves);
+    arrayOfMoves.pop();
+    console.log(arrayOfMoves);
+
+    resetBoard();
+    setState({
+      ...state,
+      currentBoard: doManyMoves(
+        arrayOfMoves,
+        state.startingBoard,
+        state.pieceArr
+      )
+    });
+    setMoveList(arrayOfMoves);
+  }
+
   return (
     <>
-      {/* <button className='reset' onClick={() => resetBoard()}> Reset board</button> */}
-      <Nav/>
+      <button className="reset" onClick={() => {resetBoard(); setMoveList([])}}>
+        Reset board
+      </button>
+      <button onClick={() => undoMove(moveList)}>undo move</button>
+      <Nav />
       <div>
         <span id="banner-text">ULTIMATE CHESS</span>
       </div>
