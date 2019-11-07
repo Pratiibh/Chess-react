@@ -1,24 +1,18 @@
 import React from 'react';
 
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import About from './components/about/about-us.js';
+import App from './App.js';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import About from './components/about/about-us.js'
-import App from './App.js'
-
-export default function () {
+export default function() {
   return (
     <Router>
       <div>
-        <ul className='nav'>
+        <ul className="nav">
           <li>
             <Link to="/">Home</Link>
           </li>
-        
+
           <li>
             <Link to="/login">Login</Link>
           </li>

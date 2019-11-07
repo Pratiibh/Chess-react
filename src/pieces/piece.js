@@ -115,7 +115,7 @@ export default class Piece {
   moveIntoCheck(space, board, allPiecesArr) {
     let otherKing = null;
     let storedPieces = [...allPiecesArr];
-    
+
     for (let i = 0; i < storedPieces.length; i++) {
       if (
         storedPieces[i].color !== this.color &&
@@ -126,11 +126,11 @@ export default class Piece {
     }
     let bool = boardMethods.checkChecker(otherKing, allPiecesArr);
     if (bool) {
-      console.log(otherKing.color, 'YOU ARE IN CHECK')
-      return {inCheck: otherKing.color}
+      console.log(otherKing.color, 'YOU ARE IN CHECK');
+      return { inCheck: otherKing.color };
     } else {
       // move on with your life
-      return {inCheck: null}
+      return { inCheck: null };
     }
   }
 
@@ -138,8 +138,10 @@ export default class Piece {
     if (arrayIncludes(this.availableMoves, space)) {
       let returnboard = this.move(space, board, allPiecesArr);
       let checkObj = this.moveIntoCheck(space, board, allPiecesArr);
-      if(cb){cb(checkObj)}
-      return returnboard
+      if (cb) {
+        cb(checkObj);
+      }
+      return returnboard;
     } else {
       return 'Illegal Move';
     }
