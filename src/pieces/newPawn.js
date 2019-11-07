@@ -16,11 +16,7 @@ export default class Pawn extends Piece {
   position = this.currentSpace;
   pawnCanMove(space, board) {
     let [s, b] = [space, board];
-    if (
-      this.isOnBoard(space) &&
-      !this.isFriend(s, b) &&
-      this.isEmpty(s, b) 
-    ) {
+    if (this.isOnBoard(space) && !this.isFriend(s, b) && this.isEmpty(s, b)) {
       return true;
     } else {
       return false;
@@ -28,11 +24,7 @@ export default class Pawn extends Piece {
   }
   pawnCanAttack(space, board) {
     let [s, b] = [space, board];
-    if (
-      this.isOnBoard(space) &&
-      !this.isFriend(s, b) &&
-      (this.isFoe(s,b))
-    ) {
+    if (this.isOnBoard(space) && !this.isFriend(s, b) && this.isFoe(s, b)) {
       return true;
     } else {
       return false;
@@ -41,7 +33,7 @@ export default class Pawn extends Piece {
   howItMoves = (currentSpace, color, board) => {
     let newAvailableMoves = [];
     let pawnMoves = { white: [[1, 0]], black: [[-1, 0]] };
-    let pawnStartMoves = {white: [[2,0]], black: [[-2,0]]}
+    let pawnStartMoves = { white: [[2, 0]], black: [[-2, 0]] };
     let pawnAttacks = {
       white: [[1, 1], [1, -1]],
       black: [[-1, 1], [-1, -1]]
@@ -60,19 +52,23 @@ export default class Pawn extends Piece {
     let possMoves = [];
     let attackMoves = [];
     pawnAttacks[this.color].forEach(move => {
-      attackMoves.push((arrAdd(this.currentSpace, move)))
+      attackMoves.push(arrAdd(this.currentSpace, move));
     });
-    attackMoves = attackMoves.filter(move => this.pawnCanAttack(move, board))
+    attackMoves = attackMoves.filter(move => this.pawnCanAttack(move, board));
     pawnMoves[this.color].forEach(move => {
       possMoves.push(arrAdd(this.currentSpace, move));
     });
-    if(this.currentSpace === this.startingSpace){pawnStartMoves[this.color].forEach(move => {
-      possMoves.push(arrAdd(this.currentSpace, move));
-    });}
+    if (this.currentSpace === this.startingSpace) {
+      pawnStartMoves[this.color].forEach(move => {
+        possMoves.push(arrAdd(this.currentSpace, move));
+      });
+    }
     possMoves = possMoves.filter(move => this.pawnCanMove(move, board));
-    
+
     newAvailableMoves = [...possMoves, ...attackMoves];
     return newAvailableMoves;
   };
-  howItMonitors(){return []}
+  howItMonitors() {
+    return [];
+  }
 }
