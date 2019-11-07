@@ -24,16 +24,15 @@ function arrayIncludes(bigArr, lilArr) {
   return bool;
 }
 
-function whereIsKing(color, allPiecesArr){
-  if(!color){return []}
-  let king
-  allPiecesArr.forEach((piece,i) => {
-    if(
-      piece.name === 'King' &&
-      piece.color === color
-    ){
-      king = allPiecesArr[i]
+function whereIsKing(color, allPiecesArr) {
+  if (!color) {
+    return [];
+  }
+  let king;
+  allPiecesArr.forEach((piece, i) => {
+    if (piece.name === 'King' && piece.color === color) {
+      king = allPiecesArr[i];
     }
-  })
-  return king ? king.currentSpace : null
+  });
+  return king ? king.currentSpace : null;
 }
