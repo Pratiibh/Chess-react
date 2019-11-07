@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import skeletonBoard from '../board/skeletonBoard.js';
-import Pawn from '../pieces/pawn.js';
+import Pawn from '../pieces/newPawn.js';
 
 describe('Tests for isolated Pawns', () => {
   it('Can move forward', () => {
