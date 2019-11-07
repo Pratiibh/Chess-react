@@ -113,29 +113,33 @@ export default class Piece {
   }
 
   moveIntoCheck(space, board, allPiecesArr) {
-    let sameKing = null;
-    // let storedBoard = [...board];
+    let otherKing = null;
     let storedPieces = [...allPiecesArr];
-    // let storedThis = { ...this };
+    
     for (let i = 0; i < storedPieces.length; i++) {
       if (
-        storedPieces[i].color === this.color &&
+        storedPieces[i].color !== this.color &&
         storedPieces[i].name === 'King'
       ) {
-        sameKing = allPiecesArr[i];
+        otherKing = allPiecesArr[i];
       }
     }
-    let bool = boardMethods.checkChecker(sameKing, allPiecesArr);
+    let bool = boardMethods.checkChecker(otherKing, allPiecesArr);
     if (bool) {
-      //roll back board
+      console.log(otherKing.color, 'YOU ARE IN CHECK')
+      return {inCheck: otherKing.color}
     } else {
       // move on with your life
+      return {inCheck: null}
     }
   }
 
-  legalMove(space, board, allPiecesArr) {
+  legalMove(space, board, allPiecesArr, cb) {
     if (arrayIncludes(this.availableMoves, space)) {
-      return this.move(space, board, allPiecesArr);
+      let returnboard = this.move(space, board, allPiecesArr);
+      let checkObj = this.moveIntoCheck(space, board, allPiecesArr);
+      if(cb){cb(checkObj)}
+      return returnboard
     } else {
       return 'Illegal Move';
     }

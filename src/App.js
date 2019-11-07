@@ -6,11 +6,14 @@ import Updater from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
 import {deadPieces} from './board/dead-piece-arr.js'
 import { arrayIncludes } from './board/boardmethods.js';
+import exampleGame from './board/exampleGame.js';
+import { doManyMoves } from './board/redoMove.js';
 import Hero from './components/hero-text/hero-text.js'
 
 // this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
 import * as boardItems from './board/startingBoard.js';
+import { stat } from 'fs';
 
 function App() {
   let defaultPieceState = { piece: null };
@@ -22,7 +25,7 @@ function App() {
   // let [deadWhite, setDeadWhite] = useState(...deadPieces, deadPieces[0].whitePieces);
   // let [deadBlack, setDeadBlack] = useState(...deadPieces[0].blackPieces);
   let [deadGuys, setDeadGuys] = useState([...deadPieces])
-  
+  let [check, setCheck] = useState({inCheck:null})
   const setDeadWhite = (victim) => {
     deadGuys[0].whitePieces = [...deadPieces[0].whitePieces, victim];
     setDeadGuys([...deadGuys]);
@@ -47,6 +50,7 @@ function App() {
     if (activePiece.piece) {
       showAvailableMoves(activePiece.piece.availableMoves);
     }
+    console.log(check)
   }, [activePiece]);
 
   const returnToDefault = () => {
@@ -63,7 +67,10 @@ function App() {
   function handleClick(position) {
     if (activePiece.piece === null) {
       if (state.startingBoard[position[0]]) {
-        if (state.startingBoard[position[0]][position[1]] && state.startingBoard[position[0]][position[1]].color === turn) {
+        if (
+          state.startingBoard[position[0]][position[1]] &&
+          state.startingBoard[position[0]][position[1]].color === turn
+        ) {
           setActivePiece({
             piece: state.startingBoard[position[0]][position[1]]
           });
@@ -84,7 +91,8 @@ function App() {
       activePiece.piece.legalMove(
         position,
         state.startingBoard,
-        state.pieceArr
+        state.pieceArr,
+        setCheck
       );
 
       setActivePiece(defaultPieceState);
@@ -97,7 +105,6 @@ function App() {
     setState({ ...state, startingBoard: resettedBoard });
     setDeadBlack([]);
     setDeadWhite([]);
-    setMoveList([]);
     setTurn('white');
   }
   function grimReaper(position) {
@@ -112,6 +119,24 @@ function App() {
         }
       }
     }
+  }
+
+  function undoMove(arrayOfMoves) {
+    console.log('begin undo move logging');
+    console.log(arrayOfMoves);
+    arrayOfMoves.pop();
+    console.log(arrayOfMoves);
+
+    resetBoard();
+    setState({
+      ...state,
+      currentBoard: doManyMoves(
+        arrayOfMoves,
+        state.startingBoard,
+        state.pieceArr
+      )
+    });
+    setMoveList(arrayOfMoves);
   }
 
   return (
