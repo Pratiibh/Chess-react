@@ -22,6 +22,9 @@ export default function () {
           <li>
             <Link to="/login">Login</Link>
           </li>
+          <li>
+            <Link to="/">Resume Game</Link>
+          </li>
 
           <li>
             <Link to="/about">About The Devs</Link>

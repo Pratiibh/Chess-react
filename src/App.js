@@ -4,7 +4,7 @@ import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
 import Updater from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
-import Nav from './components/banner/banner.js';
+import {deadPieces} from './board/dead-piece-arr.js'
 import { arrayIncludes } from './board/boardmethods.js';
 import Hero from './components/hero-text/hero-text.js'
 
@@ -19,8 +19,20 @@ function App() {
   let [state, setState] = useState({ ...boardItems });
   let [activePiece, setActivePiece] = useState(defaultPieceState);
   let [moveList, setMoveList] = useState([]);
-  let [deadWhite, setDeadWhite] = useState([]);
-  let [deadBlack, setDeadBlack] = useState([]);
+  // let [deadWhite, setDeadWhite] = useState(...deadPieces, deadPieces[0].whitePieces);
+  // let [deadBlack, setDeadBlack] = useState(...deadPieces[0].blackPieces);
+  let [deadGuys, setDeadGuys] = useState([...deadPieces])
+  
+  const setDeadWhite = (victim) => {
+    deadGuys[0].whitePieces = [...deadPieces[0].whitePieces, victim];
+    setDeadGuys([...deadGuys]);
+  }
+
+  const setDeadBlack = (victim) => {
+    deadGuys[0].blackPieces = [...deadPieces[0].blackPieces, victim];
+    setDeadGuys([...deadGuys]);
+  }
+
   let [turn, setTurn] = useState('white');
 
   useEffect(() => {
@@ -93,10 +105,10 @@ function App() {
       let victim = state.startingBoard[position[0]][position[1]];
       if (victim) {
         if (victim.color === 'white') {
-          setDeadWhite([...deadWhite, victim]);
+          setDeadWhite(victim);
         }
         if (victim.color === 'black') {
-          setDeadBlack([...deadBlack, victim]);
+          setDeadBlack(victim);
         }
       }
     }
@@ -106,7 +118,7 @@ function App() {
     <>
       <Hero />
       <div id='board-container'>
-      <DeadHomies white={deadWhite} black={deadBlack} />
+      <DeadHomies white={deadGuys[0].whitePieces} black={deadGuys[0].blackPieces} />
       <Updater moves={moveList} />
       <DisplayBoard board={state} />
    
