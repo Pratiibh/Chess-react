@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/Chess-react/static/css/main.2598f9a0.chunk.css",
-    "main.js": "/Chess-react/static/js/main.cb116c87.chunk.js",
-    "main.js.map": "/Chess-react/static/js/main.cb116c87.chunk.js.map",
+    "main.css": "/Chess-react/static/css/main.109a7efc.chunk.css",
+    "main.js": "/Chess-react/static/js/main.2b209731.chunk.js",
+    "main.js.map": "/Chess-react/static/js/main.2b209731.chunk.js.map",
     "runtime-main.js": "/Chess-react/static/js/runtime-main.ac3e65e4.js",
     "runtime-main.js.map": "/Chess-react/static/js/runtime-main.ac3e65e4.js.map",
-    "static/js/2.a1941a92.chunk.js": "/Chess-react/static/js/2.a1941a92.chunk.js",
-    "static/js/2.a1941a92.chunk.js.map": "/Chess-react/static/js/2.a1941a92.chunk.js.map",
+    "static/js/2.60e111b3.chunk.js": "/Chess-react/static/js/2.60e111b3.chunk.js",
+    "static/js/2.60e111b3.chunk.js.map": "/Chess-react/static/js/2.60e111b3.chunk.js.map",
     "index.html": "/Chess-react/index.html",
-    "precache-manifest.3715ad051062839436fb1cb0721d1382.js": "/Chess-react/precache-manifest.3715ad051062839436fb1cb0721d1382.js",
+    "precache-manifest.0ee56d3dbd1a5b57c01344221fcc7c05.js": "/Chess-react/precache-manifest.0ee56d3dbd1a5b57c01344221fcc7c05.js",
     "service-worker.js": "/Chess-react/service-worker.js",
-    "static/css/main.2598f9a0.chunk.css.map": "/Chess-react/static/css/main.2598f9a0.chunk.css.map",
+    "static/css/main.109a7efc.chunk.css.map": "/Chess-react/static/css/main.109a7efc.chunk.css.map",
     "static/media/bkn.png": "/Chess-react/static/media/bkn.9dad2785.png",
     "static/media/bq.png": "/Chess-react/static/media/bq.3abe85b2.png",
+    "static/media/puppy-four.jpg": "/Chess-react/static/media/puppy-four.c56d7e4f.jpg",
+    "static/media/puppy-one.jpg": "/Chess-react/static/media/puppy-one.7df12b64.jpg",
+    "static/media/puppy-three.jpg": "/Chess-react/static/media/puppy-three.c4f55e77.jpg",
     "static/media/wb.png": "/Chess-react/static/media/wb.5fc256d0.png",
     "static/media/wkn.png": "/Chess-react/static/media/wkn.d4c3f8a7.png",
     "static/media/wp.png": "/Chess-react/static/media/wp.7e948299.png",
@@ -20,8 +23,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.ac3e65e4.js",
-    "static/js/2.a1941a92.chunk.js",
-    "static/css/main.2598f9a0.chunk.css",
-    "static/js/main.cb116c87.chunk.js"
+    "static/js/2.60e111b3.chunk.js",
+    "static/css/main.109a7efc.chunk.css",
+    "static/js/main.2b209731.chunk.js"
   ]
 }
