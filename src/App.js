@@ -3,6 +3,7 @@ import './App.css';
 import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
 import Updater from './api/board-updater.js';
+import GetMoves from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
 import Nav from './components/banner/banner.js';
 import { arrayIncludes } from './board/boardmethods.js';
@@ -50,7 +51,10 @@ function App() {
   function handleClick(position) {
     if (activePiece.piece === null) {
       if (state.startingBoard[position[0]]) {
-        if (state.startingBoard[position[0]][position[1]] && state.startingBoard[position[0]][position[1]].color === turn) {
+        if (
+          state.startingBoard[position[0]][position[1]] &&
+          state.startingBoard[position[0]][position[1]].color === turn
+        ) {
           setActivePiece({
             piece: state.startingBoard[position[0]][position[1]]
           });
@@ -110,6 +114,7 @@ function App() {
       </div>
       <DeadHomies white={deadWhite} black={deadBlack} />
       <Updater moves={moveList} />
+      <GetMoves moves={moveList} />
       <DisplayBoard board={state} />
 
       <div

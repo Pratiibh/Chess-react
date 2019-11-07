@@ -20,4 +20,20 @@ function Updater(props) {
   return null;
 }
 
-export default Updater;
+function GetMoves(props) {
+  useEffect(() => {
+    const moveString = JSON.stringify(props.moves);
+    console.log(moveString);
+    fetch(API)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(console.error);
+  }, [props.moves]);
+  return null;
+}
+
+export default { Updater, GetMoves };
