@@ -1,16 +1,22 @@
+
+
 .about{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
-  position: relative;
-  top: 300px;
+  position: absolute;
+  top: 250px;
+  left: 45%;
+  color: whitesmoke;
 }
 
-.about-container{
+/* .about-container{
   display: flex;
   flex-direction: row;
-}
+  width: 80%;
+  text-align: center;
+  justify-content: center;
+} */
 
 ul{
   text-align: center;
@@ -20,3 +26,10 @@ ul{
   display: inline-block;
 }
 
+h1{
+  font-size: 40px;
+}
+
+p{
+  font-size: 20px;
+}
