@@ -40,7 +40,7 @@ export default function about() {
           <li>
             <h1>AJ</h1>
             <img src={BlackKing} width="300" />
-            <p>After serving 6 years in the military as a Persian Farsi linguist and Intelligence analyst, I decided to apply those language learning and analytic skills to a career in coding. Incidentally, I enjoyed learning JavaScript so much I dropped everything and moved across the country to puruse my new goal.</p>
+            <p>After serving 6 years in the military as a Persian Farsi linguist and Intelligence analyst, I decided to apply those language learning and analytic skills to a career in coding. Incidentally, I enjoyed learning JavaScript so much I dropped everything and moved across the country to pursue my new goal.</p>
           </li>
           <li>
             <h1>Brandyn</h1>
