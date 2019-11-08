@@ -10,21 +10,32 @@ import '../../App.css';
 export default function about() {
   return (
     <>
-      {/* <Nav /> */}
       <div>
         <span id="banner-text">ULTIMATE CHESS TEAM</span>
       </div>
-      <div className="about-container">
         <ul className="about">
           <li>
             <h1>Pratiibh</h1>
             <img src={BlackKnight} width="300" />
-            <p>I like to code</p>
+            <p>I'm a a Software Developer born and raised in Washington! Hobbies that I keep up with are computer building, aquarium/fishkeeping, and basketball!
+            </p>
           </li>
           <li>
             <h1>Lee</h1>
             <img src={WhiteQueen} width="300" />
-            <p>I like to code</p>
+            <p>
+              They used to call me the codeDæmon, now they call me the white
+              queen.
+            </p>
+            <p>
+              Currently supporting AWS EC2 in the government isolated regions,
+              motivated and passionate about improving engineers quality of
+              life.
+            </p>
+            <p>
+              Dreams about building tools/environments that lets engineers scale
+              their efforts beyond their own teams
+            </p>
           </li>
           <li>
             <h1>AJ</h1>
@@ -34,10 +45,11 @@ export default function about() {
           <li>
             <h1>Brandyn</h1>
             <img src={WhitePawn} width="300" />
-            <p>I like to code</p>
+            <p>Artist</p>
+            <p>Culturally Adaptable</p>
+            <p>Great at breakinga and then fixing things.</p>
           </li>
         </ul>
-      </div>
     </>
   );
 }

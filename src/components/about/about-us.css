@@ -1,35 +1,28 @@
 
 
-.about{
+ .about {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   position: absolute;
+  justify-content: space-evenly;
   top: 250px;
-  left: 45%;
   color: whitesmoke;
+  width: 100%;
+  height: auto;
 }
 
-/* .about-container{
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  text-align: center;
-  justify-content: center;
-} */
 
-ul{
-  text-align: center;
-}
-
-.about li{
+ .about li{
   display: inline-block;
+  text-align: center;
+  width: 20%;
 }
 
 h1{
-  font-size: 40px;
+  font-size: 60px;
 }
 
 p{
-  font-size: 20px;
+  font-size: 30px;
 }
+
