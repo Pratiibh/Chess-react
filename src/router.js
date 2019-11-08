@@ -40,6 +40,9 @@ export default function() {
           </Route>
           <Route path="/about">
             <About />
+            </Route>
+          <Route path="/Chess-react">
+            <App />
           </Route>
         </Switch>
       </div>
