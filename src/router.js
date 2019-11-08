@@ -44,6 +44,15 @@ export default function() {
           <Route path="/Chess-react">
             <App />
           </Route>
+          <Route exact path="https://401-chess-team.github.io/Chess-react/">
+            <App />
+          </Route>'
+          <Route exact path="/Chess-react/">
+            <App />
+          </Route>
+          <Route exact path="https://401-chess-team.github.io/">
+            <App />
+          </Route>
         </Switch>
       </div>
     </Router>
