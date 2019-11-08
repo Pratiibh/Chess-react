@@ -28,7 +28,19 @@ export default function about() {
           <li>
             <h1>Lee</h1>
             <img src={PuppyTwo} width="300" />
-            <p>I like to code</p>
+            <p>
+              They used to call me the codeDæmon, now they call me the white
+              queen.
+            </p>
+            <p>
+              Currently supporting AWS EC2 in the government isolated regions,
+              motivated and passionate about improving engineers quality of
+              life.
+            </p>
+            <p>
+              Dreams about building tools/environments that lets engineers scale
+              their efforts beyond their own teams
+            </p>
           </li>
           <li>
             <h1>AJ</h1>
