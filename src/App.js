@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import GameBoard from './components/board/game-board.js';
 import DisplayBoard from './components/board/display-board.js';
-import Updater from './api/board-updater.js';
-import GetMoves from './api/board-updater.js';
+import { Updater, GetMoves } from './api/board-updater.js';
 import DeadHomies from './components/board/deadHomies.js';
-import {deadPieces} from './board/dead-piece-arr.js'
+import { deadPieces } from './board/dead-piece-arr.js';
 import { arrayIncludes } from './board/boardmethods.js';
-import Hero from './components/hero-text/hero-text.js'
+import Hero from './components/hero-text/hero-text.js';
 
 // this imports the board as well as all the objects (pieces)
 // naming convention is in notes folder
@@ -22,17 +21,17 @@ function App() {
   let [moveList, setMoveList] = useState([]);
   // let [deadWhite, setDeadWhite] = useState(...deadPieces, deadPieces[0].whitePieces);
   // let [deadBlack, setDeadBlack] = useState(...deadPieces[0].blackPieces);
-  let [deadGuys, setDeadGuys] = useState([...deadPieces])
-  
-  const setDeadWhite = (victim) => {
+  let [deadGuys, setDeadGuys] = useState([...deadPieces]);
+
+  const setDeadWhite = victim => {
     deadGuys[0].whitePieces = [...deadPieces[0].whitePieces, victim];
     setDeadGuys([...deadGuys]);
-  }
+  };
 
-  const setDeadBlack = (victim) => {
+  const setDeadBlack = victim => {
     deadGuys[0].blackPieces = [...deadPieces[0].blackPieces, victim];
     setDeadGuys([...deadGuys]);
-  }
+  };
 
   let [turn, setTurn] = useState('white');
 
@@ -121,22 +120,26 @@ function App() {
   return (
     <>
       <Hero />
-      <div id='board-container'>
-      <DeadHomies white={deadGuys[0].whitePieces} black={deadGuys[0].blackPieces} />
-      <Updater moves={moveList} />
-      <GetMoves moves={moveList} />
-      <DisplayBoard board={state} />
-   
-      <div
-        onClick={e => {
-          let clickedPiece = e.target.id.split('');
-          let parsedId = clickedPiece.map(num => {
-            return parseInt(num);
-          });
-          handleClick(parsedId);
-        }}>
-        <GameBoard board={state} />
-      </div>
+      <div id="board-container">
+        <DeadHomies
+          white={deadGuys[0].whitePieces}
+          black={deadGuys[0].blackPieces}
+        />
+        <Updater moves={moveList} />
+        <GetMoves moves={moveList} />
+        <DisplayBoard board={state} />
+
+        <div
+          onClick={e => {
+            let clickedPiece = e.target.id.split('');
+            let parsedId = clickedPiece.map(num => {
+              return parseInt(num);
+            });
+            handleClick(parsedId);
+          }}
+        >
+          <GameBoard board={state} />
+        </div>
       </div>
     </>
   );
