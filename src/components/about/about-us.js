@@ -34,7 +34,9 @@ export default function about() {
           <li>
             <h1>Brandyn</h1>
             <img src={PuppyFour} width="300" />
-            <p>I like to code</p>
+            <p>Artist</p>
+            <p>Culturally Adaptable</p>
+            <p>Great at breakinga and then fixing things.</p>
           </li>
         </ul>
       </div>
