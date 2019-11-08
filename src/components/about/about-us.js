@@ -19,7 +19,11 @@ export default function about() {
           <li>
             <h1>Pratiibh</h1>
             <img src={PuppyOne} width="300" />
-            <p>I like to code</p>
+            <p>I'm a a Software Developer born and raised in Washington!</p>
+            <p>
+              Hobbies that I keep up with are computer-building,
+              aquarium/fishkeeping, and basketball!
+            </p>
           </li>
           <li>
             <h1>Lee</h1>
