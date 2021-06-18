@@ -1,5 +1,4 @@
-
- .about {
+.about {
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -10,23 +9,21 @@
   height: auto;
 }
 
-
- .about li{
+.about li {
   display: inline-block;
   text-align: center;
   width: 20%;
 }
 
-h1{
+h1 {
   font-size: 60px;
 }
 
-p{
+p {
   font-size: 25px;
 }
 
 .linkedin {
   color: darkred;
-  
+  font-size: 17px;
 }
-
