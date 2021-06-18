@@ -1,22 +1,32 @@
-.about{
+
+ .about {
   display: flex;
   flex-direction: row;
+  position: absolute;
   justify-content: space-evenly;
+  top: 250px;
+  color: whitesmoke;
   width: 100%;
-  position: relative;
-  top: 300px;
+  height: auto;
 }
 
-.about-container{
-  display: flex;
-  flex-direction: row;
-}
 
-ul{
-  text-align: center;
-}
-
-.about li{
+ .about li{
   display: inline-block;
+  text-align: center;
+  width: 20%;
+}
+
+h1{
+  font-size: 60px;
+}
+
+p{
+  font-size: 25px;
+}
+
+.linkedin {
+  color: darkred;
+  
 }
 
