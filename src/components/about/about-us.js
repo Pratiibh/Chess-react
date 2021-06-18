@@ -52,7 +52,7 @@ export default function about() {
             <img src={PuppyFour} width="300" />
             <p>Artist</p>
             <p>Culturally Adaptable</p>
-            <p>Great at breakinga and then fixing things.</p>
+            <p>Great at breaking and then fixing things.</p>
           </li>
         </ul>
       </div>
