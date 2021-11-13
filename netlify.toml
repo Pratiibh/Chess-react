@@ -1,6 +1,4 @@
 [build]
-    publish = "build"
-    command = "echo 'default context'"
-    functions = "functions"
+    command = "yarn build"
     build = "build"
     
