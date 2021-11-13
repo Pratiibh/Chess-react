@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Live Deployment
 
-This application can be accessed at [ultimate-chess.netlify.app](https://ultimate-chess.netlify.app/)
+This application can be accessed at [ultimate-chess.netlify.app](https://ultimate-chess.netlify.app/).
 
 ## Available Scripts
 
